@@ -84,7 +84,6 @@ table { border-collapse: collapse; border-spacing: 0; }/* tables still need 'cel
   src: url('/css/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
   url('/css/OpenSans-Italic-webfont.woff') format('woff'),
   url('/css/OpenSans-Italic-webfont.ttf') format('truetype')
-  url('/css/OpenSans-Italic-webfont.svg#OpenSansLight') format('svg');
 }
 
 @font-face {
@@ -93,8 +92,7 @@ table { border-collapse: collapse; border-spacing: 0; }/* tables still need 'cel
   font-weight: 700;
   src: url('/css/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
   url('/css/OpenSans-Bold-webfont.woff') format('woff'),
-  url('/css/OpenSans-Bold-webfont.ttf') format('truetype'),
-  url('/css/OpenSans-Bold-webfont.svg#OpenSansLight') format('svg');
+  url('/css/OpenSans-Bold-webfont.ttf') format('truetype')
 }
 
 @font-face {
@@ -104,7 +102,6 @@ table { border-collapse: collapse; border-spacing: 0; }/* tables still need 'cel
   src: url('/css/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
   url('/css/OpenSans-Light-webfont.woff') format('woff'),
   url('/css/OpenSans-Light-webfont.ttf') format('truetype')
-  url('/css/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
 }
 
 /*----------------------------------------------*/
@@ -1227,7 +1224,7 @@ button:hover,button:focus{
 	height:17px;}
 
 .sidebarRight .container_12{
-	background:url(/images/sidebar_menu_bg.jpg) 650px 0 no-repeat;
+	background:url(/images/sidebar_menu_bg.jpg) 650px 23px no-repeat;
 	padding-top: 15px;
     min-height: 550px;}
 
@@ -3383,8 +3380,8 @@ font-size:14px;
 .square-disable{
 	background:url(/images/icons/icon_square_white.gif) 0 2px no-repeat;}
 
-.valid{border:1px solid #70A41B!important; overflow:hide;} /*#70A41B*/
-.error {overflow:hide; border:1px solid red!important; }
+.valid{border:1px solid #70A41B!important; overflow:hidden;} /*#70A41B*/
+.error {overflow:hidden; border:1px solid red!important; }
 #reservationForm p.sending, #reservationForm p.textconfirm, #reservationForm p.texterror { display:none; }
 #reservationForm p.sending img { border:none}
 #reservationForm #sending { padding: 10px 0 10px 300px; }
@@ -3862,7 +3859,7 @@ font-size:14px;
 }
 .tfuse-breadcrumbs{
 	position: absolute;
-	top: 380px;
+	top: 340px;
 	z-index: 9999;
 }
 .forum{
@@ -3977,4 +3974,7 @@ a.home_icon_block {
 .home_icon_block #icm04:hover {
 	background-image: url(/images/icon-thehoivien-hover.png);
 	background-repeat: no-repeat;
+}
+.header_top {
+	height: 135px;
 }

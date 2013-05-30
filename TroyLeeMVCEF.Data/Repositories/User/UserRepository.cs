@@ -2,7 +2,7 @@
 {
     using TroyLeeMVCEF.Data.Infrastructure.DatabaseFactory;
     using TroyLeeMVCEF.Data.Infrastructure.Repository;
-    using TroyLeeMVCEF.Domain.Entities;
+    using TroyLeeMVCEF.Model.Entities;
 
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {

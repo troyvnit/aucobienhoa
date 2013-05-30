@@ -1,48 +1,147 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA | Mẹ tròn Con vuông</title>
+    <link href="@Url.Content("~/KendoUI/content/shared/styles/examples-offline.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/KendoUI/styles/kendo.common.min.css")" rel="stylesheet" />
+        @*<link href="@Url.Content("~/KendoUI/styles/kendo.moonlight.min.css")" rel="stylesheet" type="text/css" />*@
+        <link href="@Url.Content("~/KendoUI/styles/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+        <!---End of Kendo CSS--->
+        <!---Kendo JS--->
+        <script src="@Url.Content("~/KendoUI/js/jquery.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/KendoUI/js/kendo.web.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/KendoUI/js/kendo.vi-VN.js")" type="text/javascript"></script>   
+    <link href="@Url.Content("~/css/style.css")" media="screen" rel="stylesheet" type="text/css" />
+    
+</head>
+<body class="gecko">
+    <div class="header">
+        <div class="header_top">
+            <div class="container">
+                <div class="c_language-top" style="display: none">
+                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Tiếng Việt">Tiếng Việt</a> <a>|</a>
+                    <a href="http://www.aucobienhoa.com/en" title="English">English</a>
                 </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
+                <div style="clear: both">
+                </div>
+                <div class="logo">
+                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Mẹ tròn Con vuông">
+                        <img src="@Url.Content("~/images/logo.png")" alt="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN – BIÊN HÒA" border="0">
+                    </a>
+                </div>
+                <!--/ .logo -->
+                <div id="headerSearchForm">
+                    <form method="get" id="1searchform" action="@Url.Action("Index", "AuCoBienHoa")">
+                    <div>
+                        <input class="input searchText" name="s" id="s" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm') {this.value = '';}"
+                            onblur="if (this.value == '') {this.value = 'Tìm kiếm';}" type="text">
+                        <input style="margin: 0; padding: 0; width: 30px" id="searchsubmit" class="btn-submit "
+                            value="" onfocus="if (this.value == '') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}"
+                            type="submit">
+                    </div>
+                    </form>
+                    <div style="padding-right: 10px; font-size: 19px; font-style: italic; margin-top: 30px;
+                        color: #90c74a">
+                        Mẹ tròn con vuông</div>
                 </div>
             </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+            <!--/ .container -->
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+        <!--/ .header_top -->
+        <div class="header_menu">
+            <div class="container">
+                <div class="topmenu">
+                    <ul id="menu-menu" class="dropdown">
+                        <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-home first">
+                            <a href="@Url.Action("Index", "Article")"><span>Bài viết</span></a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+            <!--/ .container -->
+        </div>
+        <!--/ .header_menu -->
+    </div>
+    <!--/ .header -->
+    @RenderBody()
+    <div class="footer">
+        <div class="container_12">
+            <center>
+                <ul>
+                    <li style="display: inline"><a href="http://www.facebook.com/sharer.php?u=http://auco.com/&amp;t=B%E1%BB%87nh%20vi%E1%BB%87n%20%C3%82u%20C%C6%A1">
+                        <img style="padding:5px;" src="@Url.Content("~/images/facef.png")" alt="">
+                    </a></li>
+                    <li style="display: inline"><a href="http://www.twitter.com/share?url=http://auco.com/">
+                        <img style="padding:5px;border-left:1px solid #ccc; border-right:1px solid #ccc;" src="@Url.Content("~/images/titf.png")" alt="">
+                    </a></li>
+                    <li style="display: inline"><a href="http://plus.google.com/share?url=http://auco.com/">
+                        <img style="padding:5px;" src="@Url.Content("~/images/gpf.png")" alt="">
+                    </a></li>
+                </ul>
+            </center>
+            <div class="footer-menu" style="margin-bottom: 20px">
+                <center>
+                    <div class="menu-menu-container">
+                        <ul id="menu-menu-1" class="menu">
+                            <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-418">
+                                <a href="@Url.Action("Index", "Article")">Bài viết</a></li>
+                        </ul>
+                    </div>
+                </center>
+            </div>
+            <div class="clear">
+            </div>
+            <div style="text-align: center;">
+                <span style="font-weight: bold">©2013 BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA</span><br>
+                <span>Khu phố 5B – P. Tân Biên – TP. Biên Hòa – Tỉnh Đồng Nai <span>
+                    <br>
+                    VP Biên Hòa: 627 Xa lộ Hà Nội – Khu phố 1 – P. Long Bình – TP. Biên Hòa – Tỉnh Đồng
+                    Nai. </span>
+                    <br>
+                    VP Sài Gòn : 23 Phùng Khắc Khoan – Phường Đakao – Quận 1 – TP. Hồ Chí Minh </span>
+                <br>
+                <span>ĐT: 08 38 238 502 - Fax: 08 38 247 890 - Email: info@aucobienhoa.com.vn</span><br>
+                <span style="font-size: 1.1em; color: #aaa">Phát triển bởi <a style="color: #aaa"
+                    href="http://troylee.com/">Troy Lee</a></span><br>
+            </div>
+        </div>
+    </div>
+    <div id="fancybox-tmp">
+    </div>
+    <div id="fancybox-loading">
+        <div>
+        </div>
+    </div>
+    <div id="fancybox-overlay">
+    </div>
+    <div id="fancybox-wrap">
+        <div id="fancybox-outer">
+            <div class="fancybox-bg" id="fancybox-bg-n">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-ne">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-e">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-se">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-s">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-sw">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-w">
+            </div>
+            <div class="fancybox-bg" id="fancybox-bg-nw">
+            </div>
+            <div id="fancybox-content">
+            </div>
+            <a id="fancybox-close"></a>
+            <div id="fancybox-title">
+            </div>
+            <a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico">
+            </span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico">
+            </span></a>
+        </div>
+    </div>
+</body>
 </html>
+@RenderSection("Scripts", required: false)

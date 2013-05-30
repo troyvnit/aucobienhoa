@@ -1,0 +1,14 @@
+﻿@{
+    List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
+}
+<div class="widget-container widget_recent_entries">
+            <h3 class="widget-title">Bài gần đây</h3>
+    <ul>
+        @foreach (var article in articles)
+        {
+            <li class="even">
+                <a class="post-title" href="@Url.Action("DetailPage", "AuCoBienHoa", new { article.ArticleID })">@article.Title</a>	 
+            </li>
+        }
+    </ul>
+</div>

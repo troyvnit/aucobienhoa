@@ -1,0 +1,7 @@
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\bin\Debug\TroyLeeMVCEF.Model.dll
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\bin\Debug\TroyLeeMVCEF.Model.pdb
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\bin\Debug\TroyLeeMVCEF.Core.dll
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\bin\Debug\TroyLeeMVCEF.Core.pdb
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\obj\Debug\TroyLeeMVCEF.Model.csprojResolveAssemblyReference.cache
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\obj\Debug\TroyLeeMVCEF.Model.dll
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Model\obj\Debug\TroyLeeMVCEF.Model.pdb

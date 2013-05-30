@@ -57,6 +57,10 @@ namespace TroyLeeMVCEF.Data.Infrastructure.Repository
         {
             return dbset.Find(id);
         }
+        public virtual T GetById(Guid id)
+        {
+            return dbset.Find(id);
+        }
         public virtual IEnumerable<T> GetAll()
         {
             return dbset.ToList();
