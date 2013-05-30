@@ -3,11 +3,14 @@
     using System.Data.Entity;
 
     using TroyLeeMVCEF.Data.Configurations;
-    using TroyLeeMVCEF.Domain.Entities;
+    using TroyLeeMVCEF.Model.Entities;
 
     public class TroyLeeMVCEFContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<ArticleCategory> ArticleCategories { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public virtual void Commit()
         {
             base.SaveChanges();

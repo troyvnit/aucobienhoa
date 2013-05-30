@@ -1,3 +1,8 @@
 <Modules>
   <Module PersistentId="C8897AF5-A9D8-4CE8-A37A-089963504671" ModuleId="TroyLeeMVCEF" />
+  <Module PersistentId="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2" ModuleId="TroyLeeMVCEF.Domain" />
+  <Module PersistentId="06534B92-9D54-40E6-BE23-F77B5649026E" ModuleId="TroyLeeMVCEF.Data" />
+  <Module PersistentId="872B6BCF-4080-4788-B1BA-237BDE257165" ModuleId="TroyLeeMVCEF.CommandProcessor_1" />
+  <Module PersistentId="BA1FD2F5-B407-457D-A24A-737A5F87FA6B" ModuleId="TroyLeeMVCEF.Model" />
+  <Module PersistentId="B314F5B1-10D8-48B7-8324-798197BE6F6E" ModuleId="TroyLeeMVCEF.Core" />
 </Modules>

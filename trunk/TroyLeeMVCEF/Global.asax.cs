@@ -9,6 +9,8 @@ using System.Web.Routing;
 
 namespace TroyLeeMVCEF
 {
+    using TroyLeeMVCEF.Data;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -21,8 +23,10 @@ namespace TroyLeeMVCEF
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            var context = new TroyLeeMVCEFContext();
+            context.Database.Initialize(true);
+            Bootstrapper.Run();
         }
     }
 }

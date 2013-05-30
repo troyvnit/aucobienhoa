@@ -54,19 +54,23 @@
     <Compile Include="Infrastructure\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ArticleCategory\ArticleCategoryRepository.cs" />
+    <Compile Include="Repositories\ArticleCategory\IArticleCategoryRepository.cs" />
+    <Compile Include="Repositories\Article\ArticleRepository.cs" />
+    <Compile Include="Repositories\Article\IArticleRepository.cs" />
     <Compile Include="Repositories\User\IUserRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
     <Compile Include="TroyLeeMVCEFContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TroyLeeMVCEF.Domain\TroyLeeMVCEF.Domain.csproj">
-      <Project>{5D9A13E2-19A8-4891-B6DF-4201F52E7EA2}</Project>
-      <Name>TroyLeeMVCEF.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TroyLeeMVCEF.Model\TroyLeeMVCEF.Model.csproj">
+      <Project>{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}</Project>
+      <Name>TroyLeeMVCEF.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

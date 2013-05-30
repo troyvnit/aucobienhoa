@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TroyLeeMVCEF.Data\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -41,13 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Commands\CreateOrUpdateArticleCategoryCommand.cs" />
+    <Compile Include="Commands\CreateOrUpdateArticleCommand.cs" />
+    <Compile Include="Commands\DeleteArticleCategoryCommand.cs" />
+    <Compile Include="Commands\DeleteArticleCommand.cs" />
+    <Compile Include="Handlers\CanAddArticle.cs" />
+    <Compile Include="Handlers\CanAddArticleCategory.cs" />
+    <Compile Include="Handlers\CreateOrUpdateArticleCategoryHandler.cs" />
+    <Compile Include="Handlers\CreateOrUpdateArticleHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TroyLeeMVCEF.CommandProcessor\TroyLeeMVCEF.CommandProcessor.csproj">
+      <Project>{872B6BCF-4080-4788-B1BA-237BDE257165}</Project>
+      <Name>TroyLeeMVCEF.CommandProcessor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TroyLeeMVCEF.Core\TroyLeeMVCEF.Core.csproj">
       <Project>{B314F5B1-10D8-48B7-8324-798197BE6F6E}</Project>
       <Name>TroyLeeMVCEF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TroyLeeMVCEF.Data\TroyLeeMVCEF.Data.csproj">
+      <Project>{06534B92-9D54-40E6-BE23-F77B5649026E}</Project>
+      <Name>TroyLeeMVCEF.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TroyLeeMVCEF.Model\TroyLeeMVCEF.Model.csproj">
+      <Project>{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}</Project>
+      <Name>TroyLeeMVCEF.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

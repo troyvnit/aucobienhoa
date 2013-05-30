@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 namespace TroyLeeMVCEF.Mappers
 {
-    using TroyLeeMVCEF.Domain.Entities;
+    using TroyLeeMVCEF.Controllers;
+    using TroyLeeMVCEF.Domain.Commands;
+    using TroyLeeMVCEF.Model.Entities;
     using TroyLeeMVCEF.Models;
 
     public class ViewModelToDomainMappingProfile : Profile
@@ -14,6 +16,10 @@ namespace TroyLeeMVCEF.Mappers
         protected override void Configure()
         {
             Mapper.CreateMap<UserViewModel, User>();
+            Mapper.CreateMap<ArticleCategoryViewModel, CreateOrUpdateArticleCategoryCommand>();
+            Mapper.CreateMap<ArticleCategoryViewModel, DeleteArticleCategoryCommand>();
+            Mapper.CreateMap<ArticleViewModel, CreateOrUpdateArticleCommand>();
+            Mapper.CreateMap<DeleteArticle, DeleteArticleCommand>();
         }
     }
 }

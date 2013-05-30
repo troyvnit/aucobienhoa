@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TroyLeeMVCEF.Core", "TroyLe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TroyLeeMVCEF.Data", "TroyLeeMVCEF.Data\TroyLeeMVCEF.Data.csproj", "{06534B92-9D54-40E6-BE23-F77B5649026E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TroyLeeMVCEF.CommandProcessor", "TroyLeeMVCEF.CommandProcessor\TroyLeeMVCEF.CommandProcessor.csproj", "{872B6BCF-4080-4788-B1BA-237BDE257165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TroyLeeMVCEF.Model", "TroyLeeMVCEF.Model\TroyLeeMVCEF.Model.csproj", "{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{06534B92-9D54-40E6-BE23-F77B5649026E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06534B92-9D54-40E6-BE23-F77B5649026E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06534B92-9D54-40E6-BE23-F77B5649026E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872B6BCF-4080-4788-B1BA-237BDE257165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872B6BCF-4080-4788-B1BA-237BDE257165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872B6BCF-4080-4788-B1BA-237BDE257165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872B6BCF-4080-4788-B1BA-237BDE257165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1FD2F5-B407-457D-A24A-737A5F87FA6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

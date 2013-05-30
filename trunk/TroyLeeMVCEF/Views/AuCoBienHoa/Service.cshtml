@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Dịch vụ";
+    Layout = "~/Views/Shared/_LayoutFO.cshtml";
+    List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
+}
+<div class="container" style="margin-top: -51px;">
+    <!-- header image/slider -->
+    <div class="header_bot header_image">
+        <div class="container">
+            <img src="/images/khamvadieutri1.jpg" height="142" width="960" alt="Kế hoạch hóa gia đình">
+        </div>
+    </div>
+    <!--/ header image/slider -->
+</div>
+<div class="middle sidebarRight">
+    <div class="container_12">
+        <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
+            <div class="breadcrumb-trail">
+                <span class="trail-before"><span class="breadcrumb-title"></span></span><a href="@Url.Action("Index", "AuCoBienHoa")"
+                    title="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA" rel="home" class="trail-begin">
+                    Trang chủ</a> <span class="separator">»</span> <span class="trail-end">Dịch vụ</span></div>
+        </div>
+        <div class="grid_8 content">
+            @foreach (var article in articles)
+            {
+                <div class="post-item">
+                    <div class="date-box">@String.Format("{0:dd/MM/yyyy}", article.UpdatedOn)</div>
+                    <h2>
+                        <a href="@Url.Action("DetailPage", "AuCoBienHoa", new { article.ArticleID })">@article.Title</a></h2>
+                    <div class="entry" style="float: left; width: 150px">
+                        <img width="150" height="150" src="@Url.Content("~/Images/" + article.ImageUrl)" class=" wp-post-image" alt="" title="kehoachhoagiadinh">
+                    </div>
+                    <span style="width: 430px; float: left; margin-left: 15px;">@Html.Raw(article.Description)<a class="link-more" href="@Url.Action("DetailPage", "AuCoBienHoa", new { article.ArticleID })">
+                        Xem tiếp</a></span>
+                    <div style="clear: both">
+                    </div>
+                    <div class="post-meta">
+                        <em><a href="@Url.Action("DetailPage", "AuCoBienHoa", new { article.ArticleID })" class="link-comments">@article.Comments.Count
+                            góp ý</a> </em>
+                    </div>
+                </div>
+                <!--/ .post-item -->
+                <div class="divider_dots">
+                </div>
+            }
+            <div class="other_posts">
+                <span class="nextp">
+                    @if ((int)ViewBag.Page > 0)
+                    {
+                        <a href="@Url.Action("Service", "AuCoBienHoa", new { page = (int)ViewBag.Page + 1, pageSize = 4 })">
+                            Trang tiếp</a>
+                    }
+                </span><span class="prevp"></span>
+            </div>
+        </div>
+        <!--/ .content -->
+        <div class="grid_4 sidebar">
+            @{Html.RenderAction("_NewArticle", "AuCoBienHoa");}
+            @RenderPage("~/Views/Shared/_HotInfo.cshtml")
+        </div>
+        <!--/ .sidebar -->
+        <div class="clear">
+        </div>
+    </div>
+    <!--/ .container_12 -->
+</div>
+<!--/ .middle -->
+<div class="middle_bot">
+</div>

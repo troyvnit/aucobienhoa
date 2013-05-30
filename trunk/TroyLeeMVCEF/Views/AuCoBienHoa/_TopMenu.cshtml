@@ -1,0 +1,68 @@
+﻿  @{
+      Layout = null;
+      List<TroyLeeMVCEF.Model.Entities.ArticleCategory> articleCategories = ViewBag.ArticleCategories;
+  }
+  <ul id="menu-menu" class="dropdown">
+                        <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-home first">
+                            <a href="@Url.Action("Index", "AuCoBienHoa")"><span>Trang chủ</span></a></li>
+                        <li id="menu-item-514" class="menu-item menu-item-type-taxonomy menu-item-object-category parent">
+                            <a href="@Url.Action("Service", "AuCoBienHoa")"><span>Dịch vụ</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 1))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li id="menu-item-1696" class="menu-item menu-item-type-post_type menu-item-object-page">
+                            <a href="@Url.Action("Service", "AuCoBienHoa")"><span>Đội ngũ chuyên môn</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 2))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page parent">
+                            <a href="http://www.aucobienhoa.com/ve-au-co/"><span>Về Âu Cơ</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 3))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li id="menu-item-1278" class="menu-item menu-item-type-post_type menu-item-object-page parent">
+                            <a href="http://www.aucobienhoa.com/quan-he-cong-dong/"><span>Quan hệ cộng đồng</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 4))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li id="menu-item-519" class="menu-item menu-item-type-post_type menu-item-object-page">
+                            <a href="http://www.aucobienhoa.com/appointments/"><span>Đặt lịch hẹn</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 5))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                            </li>
+                        <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page last">
+                            <a href="http://www.aucobienhoa.com/contact/"><span>Liên hệ</span></a>
+                            <ul class="sub-menu">
+                                @foreach(var articleCategory in articleCategories.Where(a => a.MenuID == 6))
+                                {
+                                    <li id="menu-item-@articleCategory.ArticleCategoryID" class="menu-item menu-item-type-post_type menu-item-object-page first">
+                                    <a href="@Url.Action("Category", "AuCoBienHoa", new {articleCategory.ArticleCategoryID})"><span>@articleCategory.ArticleCategoryName</span></a></li>
+                                }
+                            </ul>
+                            </li>
+                    </ul>

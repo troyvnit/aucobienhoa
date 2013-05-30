@@ -1,0 +1,4 @@
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Core\bin\Debug\TroyLeeMVCEF.Core.dll
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Core\bin\Debug\TroyLeeMVCEF.Core.pdb
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Core\obj\Debug\TroyLeeMVCEF.Core.dll
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Core\obj\Debug\TroyLeeMVCEF.Core.pdb

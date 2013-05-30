@@ -63,25 +63,50 @@
     <script src="@Url.Content("~/js/commonutilgeocoder.js")" charset="UTF-8" type="text/javascript">
     </script>
     <script src="@Url.Content("~/js/stats.js")" charset="UTF-8" type="text/javascript"></script>
+    <script src="@Url.Content("~/KendoUI/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/livevalidation_standalone.js")" type="text/javascript"></script> 
+    <style type="text/css">
+            .LV_validation_message {
+                font-weight: bold;
+                margin: 0 0 0 5px;
+                display: none;
+            }
+
+            .LV_valid { color: #00CC00; }
+
+            .LV_invalid { color: #CC0000; }
+
+            .LV_valid_field,
+            input.LV_valid_field:hover,
+            input.LV_valid_field:active,
+            textarea.LV_valid_field:hover,
+            textarea.LV_valid_field:active { border-color: #00CC00 !important; }
+
+            .LV_invalid_field,
+            input.LV_invalid_field:hover,
+            input.LV_invalid_field:active,
+            textarea.LV_invalid_field:hover,
+            textarea.LV_invalid_field:active { border-color: #CC0000 !important; }
+        </style>
 </head>
 <body class="gecko">
     <div class="header">
         <div class="header_top">
             <div class="container">
                 <div class="c_language-top" style="display: none">
-                    <a href="http://www.aucobienhoa.com/" title="Tiếng Việt">Tiếng Việt</a> <a>|</a>
+                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Tiếng Việt">Tiếng Việt</a> <a>|</a>
                     <a href="http://www.aucobienhoa.com/en" title="English">English</a>
                 </div>
                 <div style="clear: both">
                 </div>
                 <div class="logo">
-                    <a href="http://www.aucobienhoa.com/" title="Mẹ tròn Con vuông">
+                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Mẹ tròn Con vuông">
                         <img src="@Url.Content("~/images/logo.png")" alt="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN – BIÊN HÒA" border="0">
                     </a>
                 </div>
                 <!--/ .logo -->
                 <div id="headerSearchForm">
-                    <form method="get" id="1searchform" action="http://www.aucobienhoa.com/">
+                    <form method="get" id="1searchform" action="@Url.Action("Index", "AuCoBienHoa")">
                     <div>
                         <input class="input searchText" name="s" id="s" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm') {this.value = '';}"
                             onblur="if (this.value == '') {this.value = 'Tìm kiếm';}" type="text">
@@ -101,57 +126,7 @@
         <div class="header_menu">
             <div class="container">
                 <div class="topmenu">
-                    <ul id="menu-menu" class="dropdown">
-                        <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-home first">
-                            <a href="http://www.aucobienhoa.com/"><span>Trang chủ</span></a></li>
-                        <li id="menu-item-514" class="menu-item menu-item-type-taxonomy menu-item-object-category parent">
-                            <a href="http://www.aucobienhoa.com/category/dich-vu-2/"><span>Dịch vụ</span></a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-1444" class="menu-item menu-item-type-post_type menu-item-object-page first">
-                                    <a href="http://www.aucobienhoa.com/kham-va-dieu-tri/"><span>Khám và điều trị</span></a></li>
-                                <li id="menu-item-1281" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="http://www.aucobienhoa.com/sieu-am-xet-nghiem/"><span>Siêu âm xét nghiệm</span></a></li>
-                                <li id="menu-item-1280" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="http://www.aucobienhoa.com/dich-vu-sinh/"><span>Dịch vụ sinh</span></a></li>
-                                <li id="menu-item-1517" class="menu-item menu-item-type-post_type menu-item-object-page last">
-                                    <a href="http://www.aucobienhoa.com/dich-vu-khac/"><span>Dịch vụ khác</span></a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-1696" class="menu-item menu-item-type-post_type menu-item-object-page">
-                            <a href="http://www.aucobienhoa.com/doi-ngu-chuyen-mon/"><span>Đội ngũ chuyên môn</span></a></li>
-                        <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page parent">
-                            <a href="http://www.aucobienhoa.com/ve-au-co/"><span>Về Âu Cơ</span></a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-1291" class="menu-item menu-item-type-post_type menu-item-object-page first">
-                                    <a href="http://www.aucobienhoa.com/su-menh/"><span>Sứ mệnh</span></a></li>
-                                <li id="menu-item-1279" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="http://www.aucobienhoa.com/co-so-vat-chat-2/"><span>Cơ sở vật chất</span></a></li>
-                                <li id="menu-item-1104" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="http://www.aucobienhoa.com/thienthan-auco/"><span>Thiên thần Âu Cơ</span></a></li>
-                                <li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="http://www.aucobienhoa.com/tuyen-dung/"><span>Tuyển dụng</span></a></li>
-                                <li id="menu-item-1100" class="menu-item menu-item-type-post_type menu-item-object-page last">
-                                    <a href="http://www.aucobienhoa.com/diendan/"><span>Tư vấn Y khoa</span></a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-1278" class="menu-item menu-item-type-post_type menu-item-object-page parent">
-                            <a href="http://www.aucobienhoa.com/quan-he-cong-dong/"><span>Quan hệ cộng đồng</span></a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-1293" class="menu-item menu-item-type-taxonomy menu-item-object-category first">
-                                    <a href="http://www.aucobienhoa.com/category/quan-he-cong-dong/ban-tin-y-khoa/"><span>
-                                        Bản tin y khoa</span></a></li>
-                                <li id="menu-item-1294" class="menu-item menu-item-type-taxonomy menu-item-object-category">
-                                    <a href="http://www.aucobienhoa.com/category/quan-he-cong-dong/tin-tuc-benh-vien/"><span>
-                                        Tin tức bệnh viện</span></a></li>
-                                <li id="menu-item-1334" class="menu-item menu-item-type-post_type menu-item-object-page last">
-                                    <a href="http://www.aucobienhoa.com/buddyss/"><span>Hỏi – Đáp</span></a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-519" class="menu-item menu-item-type-post_type menu-item-object-page">
-                            <a href="http://www.aucobienhoa.com/appointments/"><span>Đặt lịch hẹn</span></a></li>
-                        <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page last">
-                            <a href="http://www.aucobienhoa.com/contact/"><span>Liên hệ</span></a></li>
-                    </ul>
+                     @{ Html.RenderAction("_TopMenu", "AuCoBienHoa"); }
                 </div>
             </div>
             <!--/ .container -->
@@ -180,7 +155,7 @@
                     <div class="menu-menu-container">
                         <ul id="menu-menu-1" class="menu">
                             <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-418">
-                                <a href="http://www.aucobienhoa.com/">Trang chủ</a></li>
+                                <a href="@Url.Action("Index", "AuCoBienHoa")">Trang chủ</a></li>
                             <li id="menu-item-514" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-514">
                                 <a href="http://www.aucobienhoa.com/category/dich-vu-2/">Dịch vụ</a></li>
                             <li id="menu-item-1696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1696">

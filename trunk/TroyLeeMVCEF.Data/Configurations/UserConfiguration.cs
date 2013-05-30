@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.ModelConfiguration;
 
-    using TroyLeeMVCEF.Domain.Entities;
+    using TroyLeeMVCEF.Model.Entities;
 
     public class UserConfiguration : EntityTypeConfiguration<User>
     {
