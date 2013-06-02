@@ -9,6 +9,7 @@ namespace TroyLeeMVCEF.Controllers
     using TroyLeeMVCEF.Data.Infrastructure.UnitOfWork;
     using TroyLeeMVCEF.Data.Repositories.Article;
     using TroyLeeMVCEF.Data.Repositories.ArticleCategory;
+    using TroyLeeMVCEF.Data.Repositories.Menu;
     using TroyLeeMVCEF.Model.Entities;
     using TroyLeeMVCEF.Models;
     using AutoMapper;
@@ -19,26 +20,29 @@ namespace TroyLeeMVCEF.Controllers
         // GET: /AuCoBienHoa/
         private readonly IArticleRepository articleRepository;
         private readonly IArticleCategoryRepository articleCategoryRepository;
+        private readonly IMenuRepository menuRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public AuCoBienHoaController(IArticleRepository articleRepository, IUnitOfWork unitOfWork, IArticleCategoryRepository articleCategoryRepository)
+        public AuCoBienHoaController(IArticleRepository articleRepository, IUnitOfWork unitOfWork, IArticleCategoryRepository articleCategoryRepository, IMenuRepository menuRepository)
         {
             this.articleRepository = articleRepository;
             this.articleCategoryRepository = articleCategoryRepository;
+            this.menuRepository = menuRepository;
             this.unitOfWork = unitOfWork;
         }
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Service(int page = 1, int pageSize = 4)
+        public ActionResult CategoryPage(int page = 1, int pageSize = 4, Guid ArticleCategoryID = default(Guid))
         {
             var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished && a.MenuID == 1)).OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
+                && (a.ArticleCategories.Select(ac => ac.ArticleCategoryID).ToList().Contains(ArticleCategoryID) || ArticleCategoryID == Guid.Empty)))
+                .OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.Comments = new List<CommentViewModel>();
-                articlevm.ArticleCategoryIDs = article.ArticleCategories.Select(a => a.ArticleCategoryID).ToList();
                 foreach (var comment in article.Comments)
                 {
                     articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
@@ -46,7 +50,7 @@ namespace TroyLeeMVCEF.Controllers
                 articles.Add(articlevm);
             }
             ViewBag.Articles = articles;
-            if(articles.Count < pageSize)
+            if (articles.Count < pageSize)
             {
                 page = 0;
             }
@@ -97,40 +101,21 @@ namespace TroyLeeMVCEF.Controllers
             string data = "<li class=\"comment even thread-even depth-1\"><a name=\"comment-33\"></a>" +
                           "<div id=\"li-comment-33\" class=\"comment-container comment-body\"><div class=\"avatar\">" +
                           "<img alt=\"\" src=\"http://www.gravatar.com/avatar/2b81edaa6822486461b23fa8ad05cf68\" class=\"photo avatar-40 photo avatar-default\" height=\"40\" width=\"40\" /></div>" +
-                          "<div class=\"comment-text\"><div class=\"comment-author\"><div class=\"link-author\">"+comment.Name+"</div>"+String.Format("{0:dd/MM/yyyy}", comment.CreatedOn)+"</div>" +
+                          "<div class=\"comment-text\"><div class=\"comment-author\"><div class=\"link-author\">" + comment.Name + "</div>" + String.Format("{0:dd/MM/yyyy}", comment.CreatedOn) + "</div>" +
                           "<div class=\"comment-entry\">" + comment.Content + "</div></div>" +
                           "<div id=\"comment-33\"></div><div class=\"clear\"></div></div></li>";
             return Json(data, JsonRequestBehavior.AllowGet);
         }
         public ActionResult _TopMenu()
         {
-            var articleCategories = articleCategoryRepository.GetAll();
-            ViewBag.ArticleCategories = articleCategories;
+            var menus = menuRepository.GetAll();
+            ViewBag.Menus = menus;
             return View();
         }
-        public ActionResult Category(int page, int pageSize, Guid ArticleCategoryID)
+        public ActionResult _BottomMenu()
         {
-            var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
-            {
-                var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
-                articlevm.Comments = new List<CommentViewModel>();
-                articlevm.ArticleCategoryIDs = article.ArticleCategories.Select(a => a.ArticleCategoryID).ToList();
-                foreach (var comment in article.Comments)
-                {
-                    articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
-                }
-                if(articlevm.ArticleCategoryIDs.Contains(ArticleCategoryID))
-                {
-                    articles.Add(articlevm);
-                }
-            }
-            ViewBag.Articles = articles;
-            if (articles.Count < pageSize)
-            {
-                page = 0;
-            }
-            ViewBag.Page = page;
+            var menus = menuRepository.GetAll();
+            ViewBag.Menus = menus;
             return View();
         }
     }

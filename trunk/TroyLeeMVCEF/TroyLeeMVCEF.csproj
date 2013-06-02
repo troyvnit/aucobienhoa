@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\AuCoBienHoaController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1913,7 +1914,7 @@
     <None Include="css\OpenSans-Light-webfont.ttf" />
     <None Include="css\OpenSans-Light-webfont.woff" />
     <None Include="css\OpenSans-Regular-webfont.eot" />
-    <Content Include="Views\AuCoBienHoa\Service.cshtml" />
+    <Content Include="Views\AuCoBienHoa\CategoryPage.cshtml" />
     <Content Include="Views\Shared\_HotInfo.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <None Include="KendoUI\content\dataviz\dashboards\stock-data-2007.json" />
@@ -1953,6 +1954,8 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\AuCoBienHoa\_TopMenu.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\AuCoBienHoa\_BottomMenu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

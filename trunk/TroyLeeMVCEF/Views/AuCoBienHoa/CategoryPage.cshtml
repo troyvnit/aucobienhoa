@@ -47,7 +47,7 @@
                 <span class="nextp">
                     @if ((int)ViewBag.Page > 0)
                     {
-                        <a href="@Url.Action("Service", "AuCoBienHoa", new { page = (int)ViewBag.Page + 1, pageSize = 4 })">
+                        <a href="@Url.Action("CategoryPage", "AuCoBienHoa", new { page = (int)ViewBag.Page + 1, pageSize = 4 })">
                             Trang tiếp</a>
                     }
                 </span><span class="prevp"></span>
