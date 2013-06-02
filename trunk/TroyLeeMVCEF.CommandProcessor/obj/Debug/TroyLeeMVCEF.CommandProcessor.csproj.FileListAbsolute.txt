@@ -1,4 +1,0 @@
-E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.CommandProcessor\bin\Debug\TroyLeeMVCEF.CommandProcessor.dll
-E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.CommandProcessor\bin\Debug\TroyLeeMVCEF.CommandProcessor.pdb
-E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.CommandProcessor\obj\Debug\TroyLeeMVCEF.CommandProcessor.dll
-E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.CommandProcessor\obj\Debug\TroyLeeMVCEF.CommandProcessor.pdb
