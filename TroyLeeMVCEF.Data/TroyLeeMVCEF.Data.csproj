@@ -58,6 +58,8 @@
     <Compile Include="Repositories\ArticleCategory\IArticleCategoryRepository.cs" />
     <Compile Include="Repositories\Article\ArticleRepository.cs" />
     <Compile Include="Repositories\Article\IArticleRepository.cs" />
+    <Compile Include="Repositories\Menu\IMenuRepository.cs" />
+    <Compile Include="Repositories\Menu\MenuRepository.cs" />
     <Compile Include="Repositories\User\IUserRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
     <Compile Include="TroyLeeMVCEFContext.cs" />

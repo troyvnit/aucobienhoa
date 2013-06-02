@@ -153,22 +153,7 @@
             <div class="footer-menu" style="margin-bottom: 20px">
                 <center>
                     <div class="menu-menu-container">
-                        <ul id="menu-menu-1" class="menu">
-                            <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-381 current_page_item menu-item-418">
-                                <a href="@Url.Action("Index", "AuCoBienHoa")">Trang chủ</a></li>
-                            <li id="menu-item-514" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-514">
-                                <a href="http://www.aucobienhoa.com/category/dich-vu-2/">Dịch vụ</a></li>
-                            <li id="menu-item-1696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1696">
-                                <a href="http://www.aucobienhoa.com/doi-ngu-chuyen-mon/">Đội ngũ chuyên môn</a></li>
-                            <li id="menu-item-604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-604">
-                                <a href="http://www.aucobienhoa.com/ve-au-co/">Về Âu Cơ</a></li>
-                            <li id="menu-item-1278" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1278">
-                                <a href="http://www.aucobienhoa.com/quan-he-cong-dong/">Quan hệ cộng đồng</a></li>
-                            <li id="menu-item-519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-519">
-                                <a href="http://www.aucobienhoa.com/appointments/">Đặt lịch hẹn</a></li>
-                            <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-417">
-                                <a href="http://www.aucobienhoa.com/contact/">Liên hệ</a></li>
-                        </ul>
+                        @{ Html.RenderAction("_BottomMenu", "AuCoBienHoa"); }
                     </div>
                 </center>
             </div>
@@ -184,8 +169,6 @@
                     VP Sài Gòn : 23 Phùng Khắc Khoan – Phường Đakao – Quận 1 – TP. Hồ Chí Minh </span>
                 <br>
                 <span>ĐT: 08 38 238 502 - Fax: 08 38 247 890 - Email: info@aucobienhoa.com.vn</span><br>
-                <span style="font-size: 1.1em; color: #aaa">Phát triển bởi <a style="color: #aaa"
-                    href="http://troylee.com/">Troy Lee</a></span><br>
             </div>
         </div>
     </div>

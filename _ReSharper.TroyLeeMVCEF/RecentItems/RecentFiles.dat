@@ -1,45 +1,37 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Dispatcher/f:ICommandBus.cs" caret="0" fromTop="0" />
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Commands/d:ICommands/f:ICommandHandler.cs" caret="0" fromTop="0" />
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Commands/f:CommandResults.cs" caret="0" fromTop="0" />
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Commands/f:CommandResult.cs" caret="0" fromTop="0" />
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Commands/f:CommandHandlerNotFoundException.cs" caret="0" fromTop="0" />
-    <File id="872B6BCF-4080-4788-B1BA-237BDE257165/d:Commands/d:ICommands/f:ICommand.cs" caret="0" fromTop="0" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Infrastructure/d:Repository/f:RepositoryBase.cs" caret="0" fromTop="0" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Infrastructure/d:Repository/f:IRepository.cs" caret="0" fromTop="0" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Migrations/f:Configuration.cs" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/f:Web.config" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:style.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:aw-showcase.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:jquery.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:jquery-ui-1.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:prettyPhoto.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:shCore.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:shThemeDefault.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:skin.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:ui.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:nivo-slider.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:ie.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:default.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:custom.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:css/f:css.css" caret="0" fromTop="0" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:App_Start/f:RouteConfig.cs" caret="0" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_NewArticle.cshtml" caret="491" fromTop="14" />
+    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:Article.cs" caret="1050" fromTop="24" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:CategoryPage.cshtml" caret="0" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:AuCoBienHoaController.cs" caret="2348" fromTop="11" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_TopMenu.cshtml" caret="645" fromTop="21" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:MenuController.cs" caret="1905" fromTop="28" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/f:TroyLeeMVCEFContext.cs" caret="0" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_LayoutFO.cshtml" caret="10270" fromTop="9" />
+    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Commands/f:DeleteArticleCategoryCommand.cs" caret="34" fromTop="0" />
+    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CreateOrUpdateArticleCategoryHandler.cs" caret="1302" fromTop="14" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:ArticleController.cs" caret="2941" fromTop="37" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Article/f:Index.cshtml" caret="11121" fromTop="20" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Menu/f:Index.cshtml" caret="505" fromTop="9" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Article/f:IArticleRepository.cs" caret="137" fromTop="3" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Article/f:ArticleRepository.cs" caret="269" fromTop="5" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Infrastructure/d:Repository/f:RepositoryBase.cs" caret="373" fromTop="14" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_HotInfo.cshtml" caret="54" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/f:Global.asax.cs" caret="868" fromTop="15" />
+    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:Menu.cs" caret="333" fromTop="14" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:User/f:UserRepository.cs" caret="423" fromTop="14" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Menu/f:MenuRepository.cs" caret="421" fromTop="13" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:User/f:IUserRepository.cs" caret="223" fromTop="9" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Menu/f:IMenuRepository.cs" caret="223" fromTop="9" />
+    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Commands/f:CreateOrUpdateArticleCategoryCommand.cs" caret="329" fromTop="7" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Models/f:ArticleCategoryViewModel.cs" caret="408" fromTop="12" />
+    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:ArticleCategory.cs" caret="536" fromTop="17" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_Layout.cshtml" caret="5301" fromTop="15" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:DetailPage.cshtml" caret="1806" fromTop="15" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:Service.cshtml" caret="811" fromTop="18" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_TopMenu.cshtml" caret="445" fromTop="6" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_LayoutFO.cshtml" caret="806" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:Index.cshtml" caret="0" fromTop="0" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:js/f:jquery.aw-showcase.min.js" caret="0" fromTop="0" />
   </RecentFiles>
   <RecentEdits>
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:ArticleCategory/f:IArticleCategoryRepository.cs" caret="155" fromTop="3" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:ArticleCategory/f:ArticleCategoryRepository.cs" caret="206" fromTop="4" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Article/f:IArticleRepository.cs" caret="137" fromTop="3" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Article/f:ArticleRepository.cs" caret="198" fromTop="3" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:User/f:IUserRepository.cs" caret="134" fromTop="3" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:User/f:UserRepository.cs" caret="195" fromTop="4" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/f:TroyLeeMVCEFContext.cs" caret="138" fromTop="5" />
-    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Configurations/f:UserConfiguration.cs" caret="127" fromTop="4" />
     <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CanAddArticle.cs" caret="154" fromTop="4" />
     <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CanAddArticleCategory.cs" caret="154" fromTop="3" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Mappers/f:DomainToViewModelMappingProfile.cs" caret="58" fromTop="3" />
@@ -51,16 +43,24 @@
     <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Commands/f:CreateOrUpdateArticleCommand.cs" caret="1168" fromTop="23" />
     <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CreateOrUpdateArticleHandler.cs" caret="2974" fromTop="27" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:Index.cshtml" caret="3709" fromTop="18" />
-    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:ArticleCategory.cs" caret="577" fromTop="18" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Models/f:ArticleCategoryViewModel.cs" caret="449" fromTop="13" />
-    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Commands/f:CreateOrUpdateArticleCategoryCommand.cs" caret="590" fromTop="13" />
-    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CreateOrUpdateArticleCategoryHandler.cs" caret="1328" fromTop="20" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Article/f:Index.cshtml" caret="8501" fromTop="23" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:AuCoBienHoaController.cs" caret="6730" fromTop="25" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:DetailPage.cshtml" caret="1806" fromTop="15" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_LayoutFO.cshtml" caret="6945" fromTop="27" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:Service.cshtml" caret="811" fromTop="18" />
-    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_TopMenu.cshtml" caret="445" fromTop="6" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:CategoryPage.cshtml" caret="811" fromTop="18" />
     <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_Layout.cshtml" caret="5301" fromTop="15" />
+    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:ArticleCategory.cs" caret="536" fromTop="17" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Models/f:ArticleCategoryViewModel.cs" caret="408" fromTop="12" />
+    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Commands/f:CreateOrUpdateArticleCategoryCommand.cs" caret="329" fromTop="7" />
+    <File id="5D9A13E2-19A8-4891-B6DF-4201F52E7EA2/d:Handlers/f:CreateOrUpdateArticleCategoryHandler.cs" caret="1286" fromTop="19" />
+    <File id="BA1FD2F5-B407-457D-A24A-737A5F87FA6B/d:Entities/f:Menu.cs" caret="180" fromTop="0" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Menu/f:IMenuRepository.cs" caret="232" fromTop="9" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/d:Repositories/d:Menu/f:MenuRepository.cs" caret="318" fromTop="8" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Article/f:Index.cshtml" caret="6503" fromTop="6" />
+    <File id="06534B92-9D54-40E6-BE23-F77B5649026E/f:TroyLeeMVCEFContext.cs" caret="467" fromTop="7" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Menu/f:Index.cshtml" caret="2214" fromTop="4" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:MenuController.cs" caret="1349" fromTop="11" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_TopMenu.cshtml" caret="75" fromTop="3" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_BottomMenu.cshtml" caret="129" fromTop="5" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:Shared/f:_LayoutFO.cshtml" caret="10270" fromTop="9" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Views/d:AuCoBienHoa/f:_NewArticle.cshtml" caret="22" fromTop="1" />
+    <File id="C8897AF5-A9D8-4CE8-A37A-089963504671/d:Controllers/f:AuCoBienHoaController.cs" caret="1375" fromTop="9" />
   </RecentEdits>
 </RecentFiles>
