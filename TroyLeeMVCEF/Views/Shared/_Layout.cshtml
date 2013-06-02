@@ -33,7 +33,7 @@
             <a href="http://www.troylee.vn" target="_blank"><img src="@Url.Content("~/Images/bg_r.png")" alt="" style="position:absolute; right:0" /></a>
         </div>
         <ul id="menu">
-            <li><a href="@Url.Action("Index", "Article")">QUẢN LÝ BÀI VIẾT</a></li> 
+            <li><a href="@Url.Action("Index", "Article")">QUẢN LÝ BÀI VIẾT</a></li> <li><a href="@Url.Action("Index", "Menu")">QUẢN LÝ MENU</a></li> 
             @{if (Request.IsAuthenticated && Session["AuCoBienHoaAdmin"] != null)
               {
                 <li style="float: right"><a href="@Url.Action("LogOff", "Account")">Thoát</a></li> 
