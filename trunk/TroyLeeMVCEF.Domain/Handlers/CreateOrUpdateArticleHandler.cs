@@ -40,7 +40,6 @@ namespace TroyLeeMVCEF.Domain.Handlers
                         Title = command.Title,
                         IsDeleted = false,
                         OrderID = command.OrderID,
-                        MenuID = command.MenuID,
                         ArticleCategories = new List<ArticleCategory>(), 
                         ArticleID = command.ArticleID == Guid.Empty ? Guid.NewGuid() : command.ArticleID
                     };
@@ -63,7 +62,6 @@ namespace TroyLeeMVCEF.Domain.Handlers
                 article.Title = command.Title;
                 article.IsDeleted = false;
                 article.OrderID = command.OrderID;
-                article.MenuID = command.MenuID;
                 var articlecategories = command.ArticleCategoryIDs.Select(acID => articleCategoryRepository.GetById(acID)).ToList();
                 var deleteCats = article.ArticleCategories.Where(ac => !command.ArticleCategoryIDs.Contains(ac.ArticleCategoryID)).ToList();
                 var addCats = articlecategories.Where(ac => !article.ArticleCategories.Select(a => a.ArticleCategoryID).Contains(ac.ArticleCategoryID)).ToList();

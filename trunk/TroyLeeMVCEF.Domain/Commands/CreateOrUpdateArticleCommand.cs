@@ -8,7 +8,7 @@ namespace TroyLeeMVCEF.Domain.Commands
     {
         public CreateOrUpdateArticleCommand(Guid ArticleID, string Title, string Description, string Author,
             string Content, string ImageUrl, bool IsPublished, bool IsNew, List<Guid> ArticleCategoryIDs,
-            int OrderID, int MenuID)
+            int OrderID)
         {
             this.ArticleID = ArticleID;
             this.Content = Content;
@@ -20,7 +20,6 @@ namespace TroyLeeMVCEF.Domain.Commands
             this.Title = Title;
             this.ArticleCategoryIDs = ArticleCategoryIDs;
             this.OrderID = OrderID;
-            this.MenuID = MenuID;
         }
         public Guid ArticleID { get; set; }
         public string Title { get; set; }
@@ -29,7 +28,6 @@ namespace TroyLeeMVCEF.Domain.Commands
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         public int OrderID { get; set; }
-        public int MenuID { get; set; }
         public bool IsPublished { get; set; }
         public bool IsNew { get; set; }
         public List<Guid> ArticleCategoryIDs { get; set; }

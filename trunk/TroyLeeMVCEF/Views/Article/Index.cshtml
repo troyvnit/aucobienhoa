@@ -60,8 +60,6 @@
                 <dd>#:Description#</dd>
                 <dt>Hình ảnh</dt>
                 <dd>#:ImageUrl#</dd>
-                <dt>Menu</dt>
-                <dd>#:MenuID#</dd>
             </dl>
         </div>
     </script>
@@ -86,19 +84,6 @@
                 <dt>Hình ảnh</dt>
                 <dd>
                     <input type="text" class="k-textbox" data-bind="value:ImageUrl" name="ImageUrl"/>
-                </dd>
-                <dt>Menu</dt>
-                <dd>
-                    <select data-role="dropdownlist" data-bind="value:MenuID" name="MenuID" required="required" validationMessage="không được trống">  
-                       <option value="0">Trang chủ</option>  
-                       <option value="1">Dịch vụ</option>
-                       <option value="2">Đội ngủ chuyên môn</option> 
-                       <option value="3">Về Âu Cơ</option> 
-                       <option value="4">Quan hệ cộng đồng</option> 
-                       <option value="5">Đặt lịch hẹn</option> 
-                       <option value="6">Liên hệ</option>
-                    </select>
-                    <span data-for="MenuID" class="k-invalid-msg"></span>
                 </dd>
             </dl>
         </div>
@@ -227,7 +212,6 @@
                             Content: { validation: { required: true} },
                             ImageUrl: { type: "string" },
                             OrderID: { type: "number" },
-                            MenuID: { defaultValue: "0", template: "#= MenuID #" },
                             IsPublished: { type: "boolean" },
                             IsNew: { type: "boolean" },
                             ArticleCategoryIDs: { type: "string" }
@@ -248,7 +232,6 @@
                     { field: "Content", title: "Nội dung", hidden: true },
                     { field: "ImageUrl", title: "ImageUrl", hidden: true },
                     { field: "OrderID", title: "Thứ tự", width: "70px" },
-                    { field: "MenuID", title: "Menu", editor: menuDropDownEditor, width: "100px" },
                     { field: "IsPublished", title: "Online ?", width: "80px" },
                     { field: "IsNew", title: "Mới ?", width: "50px" },
                     { field: "ArticleCategoryIDs", title: "ArticleCategoryIDs", hidden: true },
@@ -283,23 +266,6 @@
                     }
                 }
             });
-            function menuDropDownEditor(container, options) {
-                $('<input required data-text-field="Text" data-value-field="Menu" data-bind="value:' + options.field + '"/>')
-                    .appendTo(container)
-                    .kendoDropDownList({
-                        autoBind: false,
-                        dataSource:
-                            [
-                                { Text: "Trang chủ", MenuID: "0" },
-                                { Text: "Dịch vụ", MenuID: "1" },
-                                { Text: "Đội ngũ chuyên môn", MenuID: "2" },
-                                { Text: "Về Âu Cơ", MenuID: "3" },
-                                { Text: "Quan hệ cộng đồng", MenuID: "4" },
-                                { Text: "Đặt lịch hẹn", MenuID: "5" },
-                                { Text: "Liên hệ", MenuID: "6" }
-                            ]
-                    });
-            }
             wnd = $("#article-content")
                         .kendoWindow({
                             title: "Nội dung",
