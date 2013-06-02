@@ -41,7 +41,7 @@
                         MenuID: { editable: false, defaultValue: "@Guid.NewGuid()" },
                         MenuName: { validation: { required: true} },
                         Url: { type: "string" },
-                        ParentID: { type: "string" }
+                        ParentID: { type: "string", defaultValue: "@Guid.Empty" }
                     }
                 }
             }
