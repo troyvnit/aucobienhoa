@@ -47,12 +47,14 @@
   <ItemGroup>
     <Compile Include="Commands\CreateOrUpdateArticleCategoryCommand.cs" />
     <Compile Include="Commands\CreateOrUpdateArticleCommand.cs" />
+    <Compile Include="Commands\CreateOrUpdateMenuCommand.cs" />
     <Compile Include="Commands\DeleteArticleCategoryCommand.cs" />
     <Compile Include="Commands\DeleteArticleCommand.cs" />
     <Compile Include="Handlers\CanAddArticle.cs" />
     <Compile Include="Handlers\CanAddArticleCategory.cs" />
     <Compile Include="Handlers\CreateOrUpdateArticleCategoryHandler.cs" />
     <Compile Include="Handlers\CreateOrUpdateArticleHandler.cs" />
+    <Compile Include="Handlers\CreateOrUpdateMenuHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
