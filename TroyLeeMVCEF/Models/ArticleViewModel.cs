@@ -20,7 +20,6 @@
         public Guid CreatedBy { get; set; }
         public DateTime UpdatedOn { get; set; }
         public Guid UpdatedBy { get; set; }
-        public int MenuID { get; set; }
         public List<Guid> ArticleCategoryIDs { get; set; }
         public List<CommentViewModel> Comments { get; set; } 
     }

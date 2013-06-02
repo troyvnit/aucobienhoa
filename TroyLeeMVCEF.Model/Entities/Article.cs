@@ -29,7 +29,6 @@
         public Guid CreatedBy { get; set; }
         public DateTime UpdatedOn { get; set; }
         public Guid UpdatedBy { get; set; }
-        public int MenuID { get; set; }
         public virtual ICollection<ArticleCategory> ArticleCategories { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }

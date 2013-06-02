@@ -76,7 +76,7 @@ namespace TroyLeeMVCEF.Controllers
         public ActionResult _NewArticle(int page = 1, int pageSize = 5)
         {
             var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished && a.MenuID == 1)).OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.Comments = new List<CommentViewModel>();
