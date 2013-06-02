@@ -1,25 +1,26 @@
 ﻿
 namespace TroyLeeMVCEF.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using AutoMapper;
 
     using Newtonsoft.Json;
 
-    using TroyLeeMVCEF.Data.Infrastructure.UnitOfWork;
+    using TroyLeeMVCEF.CommandProcessor.Dispatcher;
     using TroyLeeMVCEF.Data.Repositories.Menu;
+    using TroyLeeMVCEF.Domain.Commands;
     using TroyLeeMVCEF.Model.Entities;
 
     public class MenuController : Controller
     {
         private readonly IMenuRepository menuRepository;
-        private readonly IUnitOfWork unitOfWork;
-        public MenuController(IMenuRepository menuRepository, IUnitOfWork unitOfWork)
+        private readonly ICommandBus commandBus;
+        public MenuController(IMenuRepository menuRepository, ICommandBus commandBus)
         {
             this.menuRepository = menuRepository;
-            this.unitOfWork = unitOfWork;
+            this.commandBus = commandBus;
         }
         public ActionResult Index()
         {
@@ -39,16 +40,11 @@ namespace TroyLeeMVCEF.Controllers
             {
                 foreach (var menu in menus)
                 {
-                    if (menuRepository.GetById(menu.MenuID) == null)
+                    var command = Mapper.Map<Menu, CreateOrUpdateMenuCommand>(menu);
+                    if (ModelState.IsValid)
                     {
-                        menu.MenuID = Guid.NewGuid();
-                        menuRepository.Add(menu);
+                        commandBus.Submit(command);
                     }
-                    else
-                    {
-                        menuRepository.Update(menu);
-                    }
-                    unitOfWork.Commit();
                 }
                 return Json(menus, JsonRequestBehavior.AllowGet);
             }
@@ -64,7 +60,6 @@ namespace TroyLeeMVCEF.Controllers
                 {
                     menu.IsDeleted = true;
                     menuRepository.Update(menu);
-                    unitOfWork.Commit();
                 }
                 return Json(menus, JsonRequestBehavior.AllowGet);
             }

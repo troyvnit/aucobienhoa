@@ -20,6 +20,7 @@ namespace TroyLeeMVCEF.Mappers
             Mapper.CreateMap<ArticleCategoryViewModel, DeleteArticleCategoryCommand>();
             Mapper.CreateMap<ArticleViewModel, CreateOrUpdateArticleCommand>();
             Mapper.CreateMap<DeleteArticle, DeleteArticleCommand>();
+            Mapper.CreateMap<Menu, CreateOrUpdateMenuCommand>();
         }
     }
 }
