@@ -233,6 +233,7 @@
     <Content Include="css\jquery.css" />
     <Content Include="css\next-horizontal3.png" />
     <Content Include="css\prev-horizontal3.png" />
+    <Content Include="images\bg_l.jpg" />
     <Content Include="images\dichvukhac2.jpg" />
     <Content Include="images\khamvadieutri1.jpg" />
     <Content Include="images\khamvadieutri2.jpg" />
@@ -1849,7 +1850,9 @@
     <Content Include="KendoUI\styles\Uniform\slider-v.gif" />
     <Content Include="KendoUI\styles\Uniform\sprite%402x.png" />
     <Content Include="KendoUI\styles\Uniform\sprite.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
