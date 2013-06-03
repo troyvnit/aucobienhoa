@@ -3832,9 +3832,9 @@ font-size:14px;
     margin: 0px!important;
 }
 .footer-menu{
-	background-image: url(/images/ac-bottom-line.png);
+	/*background-image: url(/images/ac-bottom-line.png);
 	background-repeat: no-repeat;
-	background-position: top;
+	background-position: top;*/
 	text-align: center;
 	height: 80px;
 	margin-top: -43px;
@@ -3898,7 +3898,7 @@ font-size:14px;
 	height: 100%;
 	position: fixed;
 	top:0;
-	z-index:99999;
+	z-index:9999;
 	background-image: url(/images/bgap.png);
 	display: none;
 }
@@ -3912,6 +3912,18 @@ font-size:14px;
 .addPostForum table input[type="button"]{
 	background-color:rgb(13, 98, 173);
 	border-radius:5px;
+    margin-right: 5px;
+}
+
+.addPostForum table td:first{
+	text-align: right;
+    vertical-align: middle;
+	
+}
+.addPostForum table td{
+	text-align: left;
+    vertical-align: middle;
+	
 }
 .galleryImageGrid img{
 	width:170px;
@@ -3936,44 +3948,52 @@ font-size:14px;
 	margin: 0;
 }
 a.home_icon_block {
-	height: 150px;
+	height: 100px;
 	display: block;
 }
 .home_icon_block #icm01 {
-	width: 250px;
-	background-image: url(/images/icon-banggia.png);
-	background-repeat: no-repeat;
+	width: 120px;
+	background-image: url(/images/icon-banggia-hover.png);
+    background-repeat: no-repeat;
+    background-size: 120px;
 }
 .home_icon_block #icm01:hover {
-	background-image: url(/images/icon-banggia-hover.png);
+	background-image: url(/images/icon-banggia.png);
 	background-repeat: no-repeat;
+    background-size: 120px;
 }
 .home_icon_block #icm02 {
-	width: 220px;
-	background-image: url(/images/icon-baohiem.png);
-	background-repeat: no-repeat;
-}
-.home_icon_block #icm02:hover {
+	width: 120px;
 	background-image: url(/images/icon-baohiem-hover.png);
 	background-repeat: no-repeat;
+    background-size: 120px;
+}
+.home_icon_block #icm02:hover {
+	background-image: url(/images/icon-baohiem.png);
+	background-repeat: no-repeat;
+    background-size: 120px;
 }
 .home_icon_block #icm03 {
-	width: 220px;
-	background-image: url(/images/icon-quytrinhkham.png);
-	background-repeat: no-repeat;
-}
-.home_icon_block #icm03:hover {
+	width: 120px;
 	background-image: url(/images/icon-quytrinhkham-hover.png);
 	background-repeat: no-repeat;
+    background-size: 120px;
+}
+.home_icon_block #icm03:hover {
+	background-image: url(/images/icon-quytrinhkham.png);
+	background-repeat: no-repeat;
+    background-size: 120px;
 }
 .home_icon_block #icm04 {
-	width: 260px;
-	background-image: url(/images/icon-thehoivien.png);
-	background-repeat: no-repeat;
-}
-.home_icon_block #icm04:hover {
+	width: 120px;
 	background-image: url(/images/icon-thehoivien-hover.png);
 	background-repeat: no-repeat;
+    background-size: 120px;
+}
+.home_icon_block #icm04:hover {
+	background-image: url(/images/icon-thehoivien.png);
+	background-repeat: no-repeat;
+    background-size: 120px;
 }
 .header_top {
 	height: 135px;

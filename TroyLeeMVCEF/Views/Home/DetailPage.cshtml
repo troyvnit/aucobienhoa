@@ -41,7 +41,7 @@
     <div class="container_12">
         <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
             <div class="breadcrumb-trail">
-                <span class="trail-before"><span class="breadcrumb-title"></span></span><a href="@Url.Action("Index", "AuCoBienHoa")"
+                <span class="trail-before"><span class="breadcrumb-title"></span></span><a href="@Url.Action("Index", "Home")"
                     title="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA" rel="home" class="trail-begin">
                     Trang chủ</a> <span class="separator">»</span> <span class="trail-end">@article.Title</span></div>
         </div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="comment-form">
-                    <form action="@Url.Action("PostComment", "AuCoBienHoa")" method="POST" name="commentform" id="commentform">
+                    <form action="@Url.Action("PostComment", "Home")" method="POST" name="commentform" id="commentform">
                     <input type="hidden" name="ArticleID" id="ArticleID" value="@article.ArticleID">
                     <div class="row alignleft">
                         <label for="Name">
@@ -152,7 +152,7 @@
         </div>
         <!--/ .content -->
         <div class="grid_4 sidebar">
-            @{Html.RenderAction("_NewArticle", "AuCoBienHoa");}
+            @{Html.RenderAction("_NewArticle", "Home");}
             @RenderPage("~/Views/Shared/_HotInfo.cshtml")
         </div>
         <!--/ .sidebar -->

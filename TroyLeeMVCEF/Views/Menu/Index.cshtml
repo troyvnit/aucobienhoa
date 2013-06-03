@@ -41,6 +41,7 @@
                         MenuID: { editable: false, defaultValue: "@Guid.NewGuid()" },
                         MenuName: { validation: { required: true} },
                         Url: { type: "string" },
+                        OrderID: { type: "number" },
                         ParentID: { type: "string", defaultValue: "@Guid.Empty" }
                     }
                 }
@@ -57,6 +58,7 @@
                 { field: "MenuName", title: "Tên Menu"  },
                 { field: "Url", title: "Đường dẫn" },
                 { field: "ParentID", title: "Menu cha", editor: menuDropDownEditor },
+                { field: "OrderID", title: "Thứ tự", width: "70px" },
                 { command: ["destroy"], title: " ", width: "180px" }],
             editable: true,
             sortable: true,
