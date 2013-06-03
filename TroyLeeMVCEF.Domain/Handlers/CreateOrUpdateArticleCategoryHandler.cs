@@ -26,7 +26,8 @@ namespace TroyLeeMVCEF.Domain.Handlers
                 ArticleCategoryID = command.ArticleCategoryId,
                 ArticleCategoryName = command.ArticleCategoryName,
                 Description = command.Description,
-                ImageUrl = command.ImageUrl
+                ImageUrl = command.ImageUrl,
+                ForumID = command.ForumID
             };
             if (articleCategory.ArticleCategoryID == Guid.Empty)
             {

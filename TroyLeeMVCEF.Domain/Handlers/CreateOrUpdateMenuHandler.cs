@@ -27,6 +27,7 @@ namespace TroyLeeMVCEF.Domain.Handlers
                 MenuName = command.MenuName,
                 IsDeleted = command.IsDeleted,
                 Url = command.Url,
+                OrderID = command.OrderID,
                 ParentID = command.ParentID
             };
             if (menu.MenuID == Guid.Empty)

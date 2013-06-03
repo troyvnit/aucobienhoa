@@ -50,6 +50,7 @@
     <Compile Include="Commands\CreateOrUpdateMenuCommand.cs" />
     <Compile Include="Commands\DeleteArticleCategoryCommand.cs" />
     <Compile Include="Commands\DeleteArticleCommand.cs" />
+    <Compile Include="Commands\DeleteMenuCommand.cs" />
     <Compile Include="Handlers\CanAddArticle.cs" />
     <Compile Include="Handlers\CanAddArticleCategory.cs" />
     <Compile Include="Handlers\CreateOrUpdateArticleCategoryHandler.cs" />
