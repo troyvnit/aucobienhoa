@@ -48,7 +48,7 @@ namespace TroyLeeMVCEF.Controllers
                 foreach (var articleCategory in articleCategories)
                 {
                     var command = Mapper.Map<ArticleCategoryViewModel, CreateOrUpdateArticleCategoryCommand>(articleCategory);
-                    commandBus.Validate(command);
+                    
                     if (ModelState.IsValid)
                     {
                         commandBus.Submit(command);
@@ -93,12 +93,15 @@ namespace TroyLeeMVCEF.Controllers
                 foreach (var article in articles)
                 {
                     var command = Mapper.Map<ArticleViewModel, CreateOrUpdateArticleCommand>(article);
-                    commandBus.Validate(command);
+                    
                     if (!ModelState.IsValid)
                     {
                         continue;
                     }
-                    command.Author = Session["AuCoBienHoaAdmin"].ToString();
+                    if (Session["AuCoBienHoaAdmin"] != null)
+                    {
+                        command.Author = Session["AuCoBienHoaAdmin"].ToString();
+                    }
                     var result = commandBus.Submit(command);
                     article.ArticleID = result.ID;
                 }

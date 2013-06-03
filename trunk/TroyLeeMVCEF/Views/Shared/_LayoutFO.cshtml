@@ -48,6 +48,7 @@
     <script type="text/javascript" src="@Url.Content("~/js/SyntaxHighlighter.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/js/main.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/js/jquery_005.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/tinymce.min.js")"></script>
     <meta name="generator" content="WordPress 3.4.1">
     <link rel="canonical" href="http://www.aucobienhoa.com/">
     <script type="text/javascript">
@@ -94,19 +95,19 @@
         <div class="header_top">
             <div class="container">
                 <div class="c_language-top" style="display: none">
-                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Tiếng Việt">Tiếng Việt</a> <a>|</a>
+                    <a href="@Url.Action("Index", "Home")" title="Tiếng Việt">Tiếng Việt</a> <a>|</a>
                     <a href="http://www.aucobienhoa.com/en" title="English">English</a>
                 </div>
                 <div style="clear: both">
                 </div>
                 <div class="logo">
-                    <a href="@Url.Action("Index", "AuCoBienHoa")" title="Mẹ tròn Con vuông">
+                    <a href="@Url.Action("Index", "Home")" title="Mẹ tròn Con vuông">
                         <img src="@Url.Content("~/images/logo.png")" alt="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN – BIÊN HÒA" border="0">
                     </a>
                 </div>
                 <!--/ .logo -->
                 <div id="headerSearchForm">
-                    <form method="get" id="1searchform" action="@Url.Action("Index", "AuCoBienHoa")">
+                    <form method="get" id="1searchform" action="@Url.Action("Index", "Home")">
                     <div>
                         <input class="input searchText" name="s" id="s" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm') {this.value = '';}"
                             onblur="if (this.value == '') {this.value = 'Tìm kiếm';}" type="text">
@@ -126,7 +127,7 @@
         <div class="header_menu">
             <div class="container">
                 <div class="topmenu">
-                     @{ Html.RenderAction("_TopMenu", "AuCoBienHoa"); }
+                     @{ Html.RenderAction("_TopMenu", "Home"); }
                 </div>
             </div>
             <!--/ .container -->
@@ -137,7 +138,7 @@
     @RenderBody()
     <div class="footer">
         <div class="container_12">
-            <center>
+            <div style="float: right">
                 <ul>
                     <li style="display: inline"><a href="http://www.facebook.com/sharer.php?u=http://auco.com/&amp;t=B%E1%BB%87nh%20vi%E1%BB%87n%20%C3%82u%20C%C6%A1">
                         <img style="padding:5px;" src="@Url.Content("~/images/facef.png")" alt="">
@@ -149,11 +150,11 @@
                         <img style="padding:5px;" src="@Url.Content("~/images/gpf.png")" alt="">
                     </a></li>
                 </ul>
-            </center>
+            </div>
             <div class="footer-menu" style="margin-bottom: 20px">
                 <center>
                     <div class="menu-menu-container">
-                        @{ Html.RenderAction("_BottomMenu", "AuCoBienHoa"); }
+                        @{ Html.RenderAction("_BottomMenu", "Home"); }
                     </div>
                 </center>
             </div>

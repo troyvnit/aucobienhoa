@@ -1,7 +1,7 @@
 ﻿@using TroyLeeMVCEF.Model.Entities
   @{
       Layout = null;
-      List<Menu> menus = ViewBag.Menus;
+      var menus = (List<Menu>)ViewBag.Menus;
   }
 <ul id="menu-menu" class="dropdown">
     @foreach (var menu in menus.Where(a => a.ParentID == Guid.Empty))

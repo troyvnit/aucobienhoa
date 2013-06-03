@@ -51,15 +51,14 @@ namespace TroyLeeMVCEF.Controllers
             return Json(new { success = false }, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult DeleteArticleMenus(string models)
+        public ActionResult DeleteMenus(string models)
         {
             var menus = JsonConvert.DeserializeObject<List<Menu>>(models);
             if (ModelState.IsValid)
             {
-                foreach (var menu in menus)
+                foreach (var command in menus.Select(Mapper.Map<Menu, DeleteMenuCommand>))
                 {
-                    menu.IsDeleted = true;
-                    menuRepository.Update(menu);
+                    commandBus.Submit(command);
                 }
                 return Json(menus, JsonRequestBehavior.AllowGet);
             }

@@ -14,7 +14,7 @@ namespace TroyLeeMVCEF.Controllers
     using TroyLeeMVCEF.Models;
     using AutoMapper;
 
-    public class AuCoBienHoaController : Controller
+    public class HomeController : Controller
     {
         //
         // GET: /AuCoBienHoa/
@@ -23,7 +23,7 @@ namespace TroyLeeMVCEF.Controllers
         private readonly IMenuRepository menuRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public AuCoBienHoaController(IArticleRepository articleRepository, IUnitOfWork unitOfWork, IArticleCategoryRepository articleCategoryRepository, IMenuRepository menuRepository)
+        public HomeController(IArticleRepository articleRepository, IUnitOfWork unitOfWork, IArticleCategoryRepository articleCategoryRepository, IMenuRepository menuRepository)
         {
             this.articleRepository = articleRepository;
             this.articleCategoryRepository = articleCategoryRepository;
@@ -34,7 +34,25 @@ namespace TroyLeeMVCEF.Controllers
         {
             return View();
         }
-        public ActionResult CategoryPage(int page = 1, int pageSize = 4, Guid ArticleCategoryID = default(Guid))
+        public ActionResult ForumPage(int page = 1, int pageSize = 4, Guid ForumID = default(Guid))
+        {
+            var articlecategories = articleCategoryRepository.GetAll().Where(a => a.IsDeleted != true && a.ForumID == ForumID).ToList();
+            ViewBag.ArticleCategories = articlecategories;
+            switch (ForumID.ToString())
+            {
+                case "11111111-1111-1111-1111-111111111111":
+                    ViewBag.Forum = "Tư vấn y khoa";
+                    break;
+                case "22222222-2222-2222-2222-222222222222": 
+                    ViewBag.Forum = "Hỏi - Đáp";
+                    break;
+                default: 
+                    ViewBag.Forum = "";
+                    break;
+            }
+            return View();
+        }
+        public ActionResult CategoryPage(int page = 1, int pageSize = 4, Guid ArticleCategoryID = default(Guid), bool IsForum = false)
         {
             var articles = new List<ArticleViewModel>();
             foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
@@ -54,7 +72,9 @@ namespace TroyLeeMVCEF.Controllers
             {
                 page = 0;
             }
+            ViewBag.ArticleCategory = articleCategoryRepository.GetById(ArticleCategoryID);
             ViewBag.Page = page;
+            ViewBag.IsForum = IsForum;
             return View();
         }
         public ActionResult DetailPage(Guid ArticleID)
@@ -69,6 +89,10 @@ namespace TroyLeeMVCEF.Controllers
             if (firstOrDefault != null)
             {
                 ViewBag.Banner = firstOrDefault.ImageUrl;
+            }
+            else
+            {
+                ViewBag.Banner = "khamvadieutri1.jpg";
             }
             ViewBag.Article = article;
             return View();
@@ -108,13 +132,13 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult _TopMenu()
         {
-            var menus = menuRepository.GetAll();
+            var menus = menuRepository.GetAll().OrderBy(o => o.OrderID).ToList();
             ViewBag.Menus = menus;
             return View();
         }
         public ActionResult _BottomMenu()
         {
-            var menus = menuRepository.GetAll();
+            var menus = menuRepository.GetAll().OrderBy(o => o.OrderID).ToList();
             ViewBag.Menus = menus;
             return View();
         }
