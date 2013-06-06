@@ -8,20 +8,20 @@ namespace TroyLeeMVCEF.Core.Functions
     {
         private MailMessage m;
         private string fromAddress;
-        private string toAddress;
+        private string hostAddress;
         private string username;
         private string password;
 
-        public Email(string fromAddress, string toAddress, string username, string password, string subject, string body)
+        public Email(string fromAddress, string hostAddress, string toAddress, string username, string password, string subject, string body)
         {
             this.fromAddress = fromAddress;
-            this.toAddress = toAddress;
+            this.hostAddress = hostAddress;
             this.username = username;
             this.password = password;
 
             m = new MailMessage();
-            from = fromAddress;
-            to = "troyuit@yahoo.com.vn";
+            this.from = fromAddress;
+            this.to = toAddress;
             this.subject = subject;
             this.body = body;
             m.IsBodyHtml = true;
@@ -75,7 +75,13 @@ namespace TroyLeeMVCEF.Core.Functions
         {
             try
             {
-                var sc = new SmtpClient { Host = toAddress, DeliveryMethod = SmtpDeliveryMethod.Network, UseDefaultCredentials = false, Port = 587, Credentials = new System.Net.NetworkCredential(username, password), EnableSsl = true };
+                SmtpClient sc = new SmtpClient();
+                sc.Host = hostAddress;
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.UseDefaultCredentials = false;
+                sc.Port = 587;
+                sc.Credentials = new System.Net.NetworkCredential(username, password);
+                sc.EnableSsl = true;
                 sc.Send(m);
                 return true;
             }

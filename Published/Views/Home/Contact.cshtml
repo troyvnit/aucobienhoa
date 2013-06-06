@@ -1,0 +1,123 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutFO.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var name = new LiveValidation("Name");
+        name.add(Validate.Presence, { failureMessage: "" });
+        var email = new LiveValidation("Email");
+        email.add(Validate.Presence, { failureMessage: "" });
+        email.add(Validate.Email);
+        var content = new LiveValidation("Message");
+        content.add(Validate.Presence, { failureMessage: "" });
+        var captcha = new LiveValidation("CaptchaInputText");
+        captcha.add(Validate.Presence, { failureMessage: "" });
+        $("#submitComment").click(function () {
+            var frm = $('#commentform');
+            if (LiveValidation.massValidate([name, email, content, captcha])) {
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: frm.attr('action'),
+                    data: frm.serialize(),
+                    success: function (data) {
+                        alert("Thông tin liên hệ đã được gửi, cảm ơn bạn đã quan tâm đến bệnh viện của chúng tôi!");
+                        $('#commentform')[0].reset();
+                    }
+                });
+            }
+        });
+        //$("#captcha br").remove();
+    });
+</script>
+<div class="container" style="margin-top: -51px;">
+    <!-- header image/slider -->
+    <div class="header_bot header_image">
+        <div class="container">
+            <img src="/images/lien-he.png" alt="Liên hệ" height="142" width="960" />
+        </div>
+    </div>
+    <!--/ header image/slider -->
+</div>
+<div class="middle sidebarRight nobg">
+    <div class="container_12" style="height: 1075px">
+        <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
+            <div class="breadcrumb-trail">
+                <span class="trail-before"><span class="breadcrumb-title"></span></span><a href="http://www.aucobienhoa.com/"
+                    title="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA" rel="home" class="trail-begin">
+                    Trang chủ</a> <span class="separator">»</span> <span class="trail-end">Liên hệ</span></div>
+        </div>
+        <div class="grid_8 content">
+            <div class="post-item">
+                <div class="entry">
+                    <p>
+                        Bệnh Viện Phụ sản Âu Cơ Sài Gòn- Biên Hòa<br>
+                                                                 . Khu phố 5B – P.Tân Biên – TP.Biên Hòa – Tỉnh Đồng Nai</p>
+                    <p>
+                        . VP Biên Hòa : 627 Xa lộ Hà Nội – Khu phố 1 – P.Long Bình – TP.Biên Hòa – Tỉnh
+                        Đồng Nai</p>
+                    <p>
+                        . VP Sài Gòn : 23 Phùng Khắc Khoan – Phường Đakao – Quận 1 – TP. Hồ Chí Minh</p>
+                    <p>
+                        . Website: www.aucobienhoa.com.vn – Email: info@aucobienhoa.com.vn</p>
+                    <div class="contact-form">
+                        <form action="@Url.Action("Contact", "Home")" method="POST" name="commentform" id="commentform">
+                            <div class="row field_text alignleft ">
+                                <label>
+                                    Họ và Tên *:</label><br/>
+                                <input name="Name" id="Name" class="inputtext input_middle required" size="40" type="text"/>
+                            </div>
+                            <div class="row field_text alignleft omega ">
+                                <label>
+                                    Địa chỉ Email *:</label><br />
+                                                            <input name="Email" id="Email" class="inputtext input_middle required" size="40" type="text"/>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="row field_text alignleft ">
+                                <label>
+                                    Tựa đề:</label><br/>
+                                <input style="width: 560px" name="Subject" class="inputtext input_middle required" size="40" id="Subject" type="text"/>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="row field_textarea ">
+                                <label>
+                                    Nội dung:</label><br/>
+                                <textarea id="Message" name="Message" class="textarea textarea_middle required" cols="40" rows="10"></textarea>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="row" id="captcha" style="position: relative; width: 100%; margin-top: 10px;">
+                                @Html.Captcha("Đổi hình", "Nhập mã bảo mật:", 5, "Không được trống", true)
+                            </div>
+                            <input style="width: 160px; background-image: url(/images/contactBtn.png);" id="submitComment" type="button" />
+                            <div class="clear">
+                            </div>
+                            <div class="row" style="text-align: center">
+                                <span class="reset-link"><a href="#" onclick="document.contactForm.reset();return false">
+                                                         </a></span>
+                                <!-- <input src="http://www.aucobienhoa.com/content/themes/auco/images/contactBtn.png" title="Submit mesage" class="btn-submit" id="send"  type="image" name="Send" /> -->
+                            </div>
+                        </form>
+                    </div>
+                    <!--/ .entry -->
+                </div>
+                <!--/ .post-item -->
+            </div>
+            <!--/ .content -->
+                <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=vi&amp;geocode=&amp;q=14+tr%C6%B0%C6%A1ng+%C4%91%E1%BB%8Bnh,+t%C3%A2n+mai,+bi%C3%AAn+h%C3%B2a&amp;aq=&amp;sll=37.09024,-95.712891&amp;sspn=66.7892,135.263672&amp;ie=UTF8&amp;hq=&amp;hnear=14+Tr%C6%B0%C6%A1ng+%C4%90%E1%BB%8Bnh,+Bi%C3%AAn+H%C3%B2a,+%C4%90%E1%BB%93ng+Nai,+Vi%E1%BB%87t+Nam&amp;ll=10.959151,106.846241&amp;spn=0.010344,0.016512&amp;t=m&amp;z=14" style="color:#0000FF;text-align:left"><img src="/images/aucomap.jpg" alt="" style="width: 940px"/></a>
+                <!--/ .sidebar -->
+                <div class="clear">
+                </div>
+            </div>
+        <div class="grid_4 sidebar">
+                <iframe width="100%" height="620" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=vi&amp;geocode=&amp;q=14+tr%C6%B0%C6%A1ng+%C4%91%E1%BB%8Bnh,+t%C3%A2n+mai,+bi%C3%AAn+h%C3%B2a&amp;aq=&amp;sll=37.09024,-95.712891&amp;sspn=66.7892,135.263672&amp;ie=UTF8&amp;hq=&amp;hnear=14+Tr%C6%B0%C6%A1ng+%C4%90%E1%BB%8Bnh,+Bi%C3%AAn+H%C3%B2a,+%C4%90%E1%BB%93ng+Nai,+Vi%E1%BB%87t+Nam&amp;ll=10.959151,106.846241&amp;spn=0.010344,0.016512&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+            </div>
+        <!--/ .container_12 -->
+    </div>
+    <!--/ .middle -->
+    <div class="middle_bot">
+    </div>
+    </div>

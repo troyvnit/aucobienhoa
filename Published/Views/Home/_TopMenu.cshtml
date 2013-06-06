@@ -1,0 +1,22 @@
+﻿@using TroyLeeMVCEF.Model.Entities
+  @{
+      Layout = null;
+      var menus = (List<Menu>)ViewBag.Menus;
+  }
+<ul id="menu-menu" class="dropdown">
+    @foreach (var menu in menus.Where(a => a.ParentID == Guid.Empty))
+    {
+        <li><a href="@menu.Url"><span>@menu.MenuName</span></a>
+        <ul class="submenu">
+            
+            @{
+                Menu menu1 = menu;
+            }
+            @foreach(var submenu in menus.Where(a => a.ParentID == menu1.MenuID))
+            {
+                <li><a href="@submenu.Url"><span>@submenu.MenuName</span></a></li>    
+            }
+        </ul>
+        </li>
+    }
+</ul>

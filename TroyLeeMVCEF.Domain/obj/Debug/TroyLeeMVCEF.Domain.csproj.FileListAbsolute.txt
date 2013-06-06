@@ -1,4 +1,3 @@
-E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\obj\Debug\TroyLeeMVCEF.Domain.csprojResolveAssemblyReference.cache
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\TroyLeeMVCEF.Domain.dll
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\TroyLeeMVCEF.Domain.pdb
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\EntityFramework.dll
@@ -11,5 +10,6 @@ E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\TroyLeeMVC
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\TroyLeeMVCEF.Data.pdb
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\TroyLeeMVCEF.Model.pdb
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\bin\Debug\EntityFramework.xml
+E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\obj\Debug\TroyLeeMVCEF.Domain.csprojResolveAssemblyReference.cache
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\obj\Debug\TroyLeeMVCEF.Domain.dll
 E:\Windows\Working\Projects\AuCoBienHoa\TroyLeeMVCEF.Domain\obj\Debug\TroyLeeMVCEF.Domain.pdb
