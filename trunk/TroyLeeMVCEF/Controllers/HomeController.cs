@@ -4,8 +4,12 @@ namespace TroyLeeMVCEF.Controllers
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
 
+    using CaptchaMvc.HtmlHelpers;
+
+    using TroyLeeMVCEF.Core.Functions;
     using TroyLeeMVCEF.Data.Infrastructure.UnitOfWork;
     using TroyLeeMVCEF.Data.Repositories.Article;
     using TroyLeeMVCEF.Data.Repositories.ArticleCategory;
@@ -40,10 +44,10 @@ namespace TroyLeeMVCEF.Controllers
             ViewBag.ArticleCategories = articlecategories;
             switch (ForumID.ToString())
             {
-                case "11111111-1111-1111-1111-111111111111":
+                case "11111111-1111-1111-1111-111111111101":
                     ViewBag.Forum = "Tư vấn y khoa";
                     break;
-                case "22222222-2222-2222-2222-222222222222": 
+                case "11111111-1111-1111-1111-111111111102": 
                     ViewBag.Forum = "Hỏi - Đáp";
                     break;
                 default: 
@@ -140,6 +144,34 @@ namespace TroyLeeMVCEF.Controllers
         {
             var menus = menuRepository.GetAll().OrderBy(o => o.OrderID).ToList();
             ViewBag.Menus = menus;
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Contact(FormCollection f)
+        {
+            if (this.IsCaptchaValid("Captcha is not valid"))
+            {
+                return Json("Mã bảo mật không đúng, vui lòng thử lại!");
+            }
+            var fromAddress = ConfigurationManager.AppSettings.Get("SendMailMessagesFromAddress");
+            var hostAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPHostAddress");
+            var toAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPToAddress");
+            var username = ConfigurationManager.AppSettings.Get("SendMailSMTPUserName");
+            var password = ConfigurationManager.AppSettings.Get("SendMailSMTPUserPassword");
+            var content = "THÔNG TIN<br /><br />" +
+                          "Họ và tên: " + f["Name"] + "<br /><br />" +
+                          "Email: " + f["Email"] + "<br /><br />" +
+                          "Nội dung: " + f["message"] + "<br /><br />";
+            var email = new Email(f["Email"], hostAddress, toAddress, username, password, f["Subject"], content);
+            var success = email.send();
+            return Json(!success ? "Gửi liên hệ thất bại, vui lòng thử lại sau!" : "Thông tin liên hệ của bạn đã được gửi, cảm ơn!");
+        }
+        public ActionResult Booking()
+        {
             return View();
         }
     }
