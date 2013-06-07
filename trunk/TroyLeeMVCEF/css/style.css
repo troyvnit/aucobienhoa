@@ -3473,7 +3473,6 @@ font-size:14px;
 
 .entry {
 	color:#808080;
-	padding:5px 0 5px 0;
 	line-height:1.6em;}
 
 .grid_8 .entry img {
@@ -3946,13 +3945,14 @@ font-size:14px;
 }
 #home_block_icon td{
 	margin: 0;
+    padding: 0;
 }
 a.home_icon_block {
 	height: 100px;
 	display: block;
 }
 .home_icon_block #icm01 {
-	width: 200px;
+	width: 240px;
 	background-image: url(/images/icon-banggia.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -3963,7 +3963,7 @@ a.home_icon_block {
     background-size: 100%;
 }
 .home_icon_block #icm02 {
-	width: 200px;
+	width: 240px;
 	background-image: url(/images/icon-quytrinhkham.png);
 	background-repeat: no-repeat;
     background-size: 100%;
@@ -3974,7 +3974,7 @@ a.home_icon_block {
     background-size: 100%;
 }
 .home_icon_block #icm03 {
-	width: 200px;
+	width: 240px;
 	background-image: url(/images/icon-baohiem.png);
 	background-repeat: no-repeat;
     background-size: 100%;
@@ -3985,7 +3985,7 @@ a.home_icon_block {
     background-size: 100%;
 }
 .home_icon_block #icm04 {
-	width: 200px;
+	width: 240px;
 	background-image: url(/images/icon-thehoivien.png);
 	background-repeat: no-repeat;
     background-size: 100%;
