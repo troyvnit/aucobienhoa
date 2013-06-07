@@ -22,13 +22,12 @@
                     url: frm.attr('action'),
                     data: frm.serialize(),
                     success: function (data) {
-                        alert("Thông tin liên hệ đã được gửi, cảm ơn bạn đã quan tâm đến bệnh viện của chúng tôi!");
+                        alert(data);
                         $('#commentform')[0].reset();
                     }
                 });
             }
         });
-        //$("#captcha br").remove();
     });
 </script>
 <div class="container" style="margin-top: -51px;">
