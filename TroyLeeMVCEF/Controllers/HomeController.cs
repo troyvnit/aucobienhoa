@@ -5,6 +5,7 @@ namespace TroyLeeMVCEF.Controllers
     using System;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Globalization;
     using System.Linq;
 
     using CaptchaMvc.HtmlHelpers;
@@ -172,7 +173,34 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult Booking()
         {
+            var date = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            ViewBag.date = date;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Booking(FormCollection f)
+        {
+            if (this.IsCaptchaValid("Captcha is not valid"))
+            {
+                return Json("Mã bảo mật không đúng, vui lòng thử lại!");
+            }
+            var fromAddress = ConfigurationManager.AppSettings.Get("SendMailMessagesFromAddress");
+            var hostAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPHostAddress");
+            var toAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPToAddress");
+            var username = ConfigurationManager.AppSettings.Get("SendMailSMTPUserName");
+            var password = ConfigurationManager.AppSettings.Get("SendMailSMTPUserPassword");
+            var content = "THÔNG TIN<br /><br />" +
+                          "Bác sĩ: " + f["Doctor"] + "<br /><br />" +
+                          "Thời gian: " + f["Time"] + "<br /><br />" +
+                          "Khách hàng: " + f["Name"] + "<br /><br />" +
+                          "Ngày sinh: " + f["Birthday"] + "<br /><br />" +
+                          "Địa chỉ: " + f["Address"] + "<br /><br />" +
+                          "Số điện thoại: " + f["Phone"] + "<br /><br />" +
+                          "Email: " + f["Email"] + "<br /><br />" +
+                          "Ghi chú: " + f["Question"] + "<br /><br />";
+            var email = new Email(f["Email"], hostAddress, toAddress, username, password, f["Subject"], content);
+            var success = email.send();
+            return Json(!success ? "Gửi liên hệ thất bại, vui lòng thử lại sau!" : "Thông tin liên hệ của bạn đã được gửi, cảm ơn!");
         }
     }
 }
