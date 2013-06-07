@@ -166,17 +166,19 @@
 
 .dp_calendar .calendar_list #list {
 	list-style:none;
-	margin:20px 0 0 0;
+	margin:0;
 }
 
 .dp_calendar .calendar_list #list li {
 	min-height:41px;
-	padding:11px;
+	padding:10px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	cursor:pointer;
 	background:none;
 	line-height:normal;
-	list-style:none;
+    list-style: none;
+    width: 65px;
+    display: -moz-stack;
 }
 
 .dp_calendar .calendar_list #list li h1 {
@@ -229,5 +231,6 @@
 	background-position:1px 4px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	padding:10px;
+	padding:9px;
 }
+
