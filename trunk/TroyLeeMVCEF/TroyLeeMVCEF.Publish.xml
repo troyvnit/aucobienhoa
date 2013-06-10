@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="E:\Windows\Working\Projects\AuCoBienHoa\Published" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="AuCoBienHoa" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="E:\Windows\Working\Projects\AuCoBienHoa\Published" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="AuCoBienHoa" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="js/plugins/pagebreak/plugin.min.js" publishTime="06/03/2013 10:50:28" />
     <file relUrl="KendoUI/content/integration/sushi/images/75/seattle-rolls.jpg" publishTime="05/24/2013 13:30:28" />
     <file relUrl="js/plugins/compat3x/tiny_mce_popup.js" publishTime="06/03/2013 10:50:28" />
@@ -110,7 +110,7 @@
     <file relUrl="images/map.jpg" publishTime="05/23/2013 22:06:48" />
     <file relUrl="images/header_slider_shadow.png" publishTime="05/23/2013 22:33:50" />
     <file relUrl="KendoUI/content/web/foods/27.jpg" publishTime="05/24/2013 13:30:31" />
-    <file relUrl="bin/TroyLeeMVCEF.dll" publishTime="06/07/2013 21:45:35" />
+    <file relUrl="bin/TroyLeeMVCEF.dll" publishTime="06/08/2013 08:20:59" />
     <file relUrl="KendoUI/content/dataviz/dashboards/performance.gif" publishTime="05/24/2013 13:30:27" />
     <file relUrl="KendoUI/content/web/Customers/SANTG.jpg" publishTime="05/24/2013 13:30:31" />
     <file relUrl="bin/DotNetOpenAuth.OpenId.dll" publishTime="05/23/2013 20:24:35" />
@@ -256,7 +256,7 @@
     <file relUrl="KendoUI/content/dataviz/gauge/gauge-container-partial.png" publishTime="05/24/2013 13:30:27" />
     <file relUrl="KendoUI/content/shared/styles/dojo.png" publishTime="05/24/2013 13:30:29" />
     <file relUrl="KendoUI/content/web/Customers/LETSS.jpg" publishTime="05/24/2013 13:30:31" />
-    <file relUrl="bin/TroyLeeMVCEF.Model.dll" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.Model.dll" publishTime="06/08/2013 08:20:54" />
     <file relUrl="KendoUI/content/spa/websushi/images/75/tekka-maki.jpg" publishTime="05/24/2013 13:30:30" />
     <file relUrl="bin/System.Web.WebPages.Razor.xml" publishTime="05/23/2013 20:24:32" />
     <file relUrl="KendoUI/content/spa/websushi/images/75/chirashi-sushi.jpg" publishTime="05/24/2013 13:30:30" />
@@ -315,7 +315,7 @@
     <file relUrl="KendoUI/styles/Metro/imagebrowser.png" publishTime="05/24/2013 13:30:38" />
     <file relUrl="KendoUI/styles/Moonlight/slider-v.gif" publishTime="05/24/2013 13:30:38" />
     <file relUrl="KendoUI/content/web/foods/75.jpg" publishTime="05/24/2013 13:30:32" />
-    <file relUrl="bin/TroyLeeMVCEF.Data.dll" publishTime="06/07/2013 21:45:34" />
+    <file relUrl="bin/TroyLeeMVCEF.Data.dll" publishTime="06/08/2013 08:20:54" />
     <file relUrl="KendoUI/styles/HighContrast/slider-v.gif" publishTime="05/24/2013 13:30:37" />
     <file relUrl="KendoUI/content/web/48x48/Grid.png" publishTime="05/24/2013 13:30:30" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.fr-LU.min.js" publishTime="05/24/2013 13:30:34" />
@@ -779,7 +779,7 @@
     <file relUrl="KendoUI/content/shared/images/photos/7.jpg" publishTime="05/24/2013 13:30:29" />
     <file relUrl="KendoUI/content/integration/simulator/devices/a100/styles.css" publishTime="05/24/2013 13:30:28" />
     <file relUrl="KendoUI/styles/Silver/slider-v.gif" publishTime="05/24/2013 13:30:38" />
-    <file relUrl="bin/TroyLeeMVCEF.Data.pdb" publishTime="06/07/2013 21:45:34" />
+    <file relUrl="bin/TroyLeeMVCEF.Data.pdb" publishTime="06/08/2013 08:20:54" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.it.min.js" publishTime="05/24/2013 13:30:35" />
     <file relUrl="bin/System.Net.Http.WebRequest.dll" publishTime="05/23/2013 20:24:41" />
     <file relUrl="KendoUI/content/web/Customers/OLDWO.jpg" publishTime="05/24/2013 13:30:31" />
@@ -793,7 +793,7 @@
     <file relUrl="KendoUI/js/cultures/kendo.culture.eu-ES.min.js" publishTime="05/24/2013 13:30:34" />
     <file relUrl="images/prettyPhoto/facebook/loader.gif" publishTime="05/23/2013 22:06:48" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.kok-IN.min.js" publishTime="05/24/2013 13:30:35" />
-    <file relUrl="bin/TroyLeeMVCEF.Core.dll" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.Core.dll" publishTime="06/08/2013 08:20:53" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.ms-MY.min.js" publishTime="05/24/2013 13:30:35" />
     <file relUrl="bin/System.Web.Entity.dll" publishTime="03/18/2010 19:31:26" />
     <file relUrl="KendoUI/content/web/Suites/test.png" publishTime="05/24/2013 13:30:33" />
@@ -812,7 +812,7 @@
     <file relUrl="KendoUI/content/web/mailOutbox.gif" publishTime="05/24/2013 13:30:33" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.th-TH.min.js" publishTime="05/24/2013 13:30:36" />
     <file relUrl="KendoUI/content/shared/images/aeroviewr.jpg" publishTime="05/24/2013 13:30:29" />
-    <file relUrl="Web.config" publishTime="06/07/2013 21:45:54" />
+    <file relUrl="Web.config" publishTime="06/08/2013 08:21:20" />
     <file relUrl="KendoUI/content/mobilethemebuilder/images/blackberry.png" publishTime="05/24/2013 13:30:28" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.ja.min.js" publishTime="05/24/2013 13:30:35" />
     <file relUrl="KendoUI/content/web/32x32/TreeView.png" publishTime="05/24/2013 13:30:30" />
@@ -999,7 +999,7 @@
     <file relUrl="KendoUI/content/spa/websushi/images/200/salmon-teriyaki.jpg" publishTime="05/24/2013 13:30:30" />
     <file relUrl="css/cartogothicstd-bold-webfont.svg" publishTime="05/23/2013 22:08:10" />
     <file relUrl="KendoUI/styles/Bootstrap/sprite@2x.png" publishTime="05/24/2013 13:30:37" />
-    <file relUrl="bin/TroyLeeMVCEF.CommandProcessor.dll" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.CommandProcessor.dll" publishTime="06/08/2013 08:20:53" />
     <file relUrl="js/addthis_widget.js" publishTime="05/27/2013 14:00:41" />
     <file relUrl="KendoUI/content/web/Customers/LAMAI.jpg" publishTime="05/24/2013 13:30:31" />
     <file relUrl="KendoUI/content/web/overview/editor.png" publishTime="05/24/2013 13:30:33" />
@@ -1132,7 +1132,7 @@
     <file relUrl="KendoUI/styles/textures/dots8.png" publishTime="05/24/2013 13:30:38" />
     <file relUrl="KendoUI/content/web/Customers/LINOD.jpg" publishTime="05/24/2013 13:30:31" />
     <file relUrl="KendoUI/styles/BlueOpal/loading-image.gif" publishTime="05/24/2013 13:30:37" />
-    <file relUrl="bin/TroyLeeMVCEF.Model.pdb" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.Model.pdb" publishTime="06/08/2013 08:20:54" />
     <file relUrl="KendoUI/content/spa/aeroviewr/images/texture.png" publishTime="05/24/2013 13:30:29" />
     <file relUrl="KendoUI/content/web/foods/16.jpg" publishTime="05/24/2013 13:30:31" />
     <file relUrl="css/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="05/23/2013 22:49:07" />
@@ -1146,7 +1146,7 @@
     <file relUrl="KendoUI/content/web/Customers/ALFKI.jpg" publishTime="05/24/2013 13:30:31" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.ar-SA.min.js" publishTime="05/24/2013 13:30:33" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.yo-NG.min.js" publishTime="05/24/2013 13:30:36" />
-    <file relUrl="bin/TroyLeeMVCEF.Domain.pdb" publishTime="06/07/2013 21:45:34" />
+    <file relUrl="bin/TroyLeeMVCEF.Domain.pdb" publishTime="06/08/2013 08:20:54" />
     <file relUrl="KendoUI/content/mobile/cities/220/cape-town.jpg" publishTime="05/24/2013 13:30:28" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.tzm.min.js" publishTime="05/24/2013 13:30:36" />
     <file relUrl="KendoUI/content/web/Sl/Chart.gif" publishTime="05/24/2013 13:30:33" />
@@ -1471,7 +1471,7 @@
     <file relUrl="js/jquery.ui.datepicker.js" publishTime="06/06/2013 09:12:25" />
     <file relUrl="KendoUI/content/shared/styles/dojo-banner.jpg" publishTime="05/24/2013 13:30:29" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.en-NZ.min.js" publishTime="05/24/2013 13:30:34" />
-    <file relUrl="bin/TroyLeeMVCEF.CommandProcessor.pdb" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.CommandProcessor.pdb" publishTime="06/08/2013 08:20:53" />
     <file relUrl="js/custom.js" publishTime="05/23/2013 20:23:58" />
     <file relUrl="KendoUI/content/web/dragdrop/draggable.png" publishTime="05/24/2013 13:30:31" />
     <file relUrl="KendoUI/content/mobile/shared/titanic3.jpg" publishTime="05/24/2013 13:30:28" />
@@ -1498,14 +1498,14 @@
     <file relUrl="js/plugins/visualchars/plugin.min.js" publishTime="06/03/2013 10:50:28" />
     <file relUrl="bin/Antlr3.Runtime.dll" publishTime="05/23/2013 20:24:33" />
     <file relUrl="KendoUI/content/web/32x32/Slider.png" publishTime="05/24/2013 13:30:30" />
-    <file relUrl="bin/TroyLeeMVCEF.Core.pdb" publishTime="06/07/2013 21:45:33" />
+    <file relUrl="bin/TroyLeeMVCEF.Core.pdb" publishTime="06/08/2013 08:20:53" />
     <file relUrl="KendoUI/content/mobile/overview/annette.jpg" publishTime="05/24/2013 13:30:28" />
     <file relUrl="KendoUI/js/kendo.tabstrip.min.js" publishTime="05/24/2013 13:30:37" />
     <file relUrl="KendoUI/content/shared/images/photos/220/6.jpg" publishTime="05/24/2013 13:30:29" />
     <file relUrl="bin/System.Net.Http.xml" publishTime="05/23/2013 20:24:41" />
     <file relUrl="images/prettyPhoto/dark_square/loader.gif" publishTime="05/23/2013 22:06:48" />
     <file relUrl="KendoUI/content/shared/styles/flowers.png" publishTime="05/24/2013 13:30:29" />
-    <file relUrl="bin/TroyLeeMVCEF.pdb" publishTime="06/07/2013 21:45:35" />
+    <file relUrl="bin/TroyLeeMVCEF.pdb" publishTime="06/08/2013 08:20:59" />
     <file relUrl="KendoUI/content/mobile/shared/qr.png" publishTime="05/24/2013 13:30:28" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.ur.min.js" publishTime="05/24/2013 13:30:36" />
     <file relUrl="KendoUI/content/mobilethemebuilder/images/cities/cape-town.jpg" publishTime="05/24/2013 13:30:28" />
@@ -1841,7 +1841,7 @@
     <file relUrl="KendoUI/js/cultures/kendo.culture.sw.min.js" publishTime="05/24/2013 13:30:36" />
     <file relUrl="KendoUI/js/cultures/kendo.culture.mi.min.js" publishTime="05/24/2013 13:30:35" />
     <file relUrl="KendoUI/content/integration/sushi/images/200/chirashi-sushi.jpg" publishTime="05/24/2013 13:30:28" />
-    <file relUrl="bin/TroyLeeMVCEF.Domain.dll" publishTime="06/07/2013 21:45:34" />
+    <file relUrl="bin/TroyLeeMVCEF.Domain.dll" publishTime="06/08/2013 08:20:54" />
     <file relUrl="images/ui-bg_glass_25_90e6f3_1x400.png" publishTime="05/23/2013 22:08:07" />
     <file relUrl="KendoUI/content/integration/simulator/images/iphone.png" publishTime="05/24/2013 13:30:28" />
     <file relUrl="images/buttons_bg_yellow.png" publishTime="05/23/2013 22:06:48" />
