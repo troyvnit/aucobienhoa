@@ -12,6 +12,7 @@ namespace TroyLeeMVCEF.Controllers
     using TroyLeeMVCEF.Data.Repositories.Menu;
     using TroyLeeMVCEF.Domain.Commands;
     using TroyLeeMVCEF.Model.Entities;
+    using TroyLeeMVCEF.Models;
 
     public class MenuController : Controller
     {
@@ -24,23 +25,27 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if (Session["AuCoBienHoaAdmin"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Account"); 
         }
         [HttpPost]
         public JsonResult GetMenus()
         {
-            var menus = menuRepository.GetAll().Where(a => a.IsDeleted != true).ToList();
+            var menus = menuRepository.GetAll().Where(a => a.IsDeleted != true).Select(Mapper.Map<Menu, MenuViewModel>).ToList();
             return Json(menus.OrderBy(a => a.MenuName), JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult CreateOrUpdateMenus(string models)
         {
-            var menus = JsonConvert.DeserializeObject<List<Menu>>(models);
+            var menus = JsonConvert.DeserializeObject<List<MenuViewModel>>(models);
             if (ModelState.IsValid)
             {
                 foreach (var menu in menus)
                 {
-                    var command = Mapper.Map<Menu, CreateOrUpdateMenuCommand>(menu);
+                    var command = Mapper.Map<MenuViewModel, CreateOrUpdateMenuCommand>(menu);
                     if (ModelState.IsValid)
                     {
                         commandBus.Submit(command);
@@ -53,11 +58,12 @@ namespace TroyLeeMVCEF.Controllers
         [HttpPost]
         public ActionResult DeleteMenus(string models)
         {
-            var menus = JsonConvert.DeserializeObject<List<Menu>>(models);
+            var menus = JsonConvert.DeserializeObject<List<MenuViewModel>>(models);
             if (ModelState.IsValid)
             {
-                foreach (var command in menus.Select(Mapper.Map<Menu, DeleteMenuCommand>))
+                foreach (var command in menus.Select(Mapper.Map<MenuViewModel, CreateOrUpdateMenuCommand>))
                 {
+                    command.IsDeleted = true;
                     commandBus.Submit(command);
                 }
                 return Json(menus, JsonRequestBehavior.AllowGet);

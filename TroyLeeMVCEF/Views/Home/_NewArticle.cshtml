@@ -2,7 +2,7 @@
     Layout = null;
     List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
 }
-<div class="widget-container widget_recent_entries">
+@*<div class="widget-container widget_recent_entries">
             <h3 class="widget-title">Bài gần đây</h3>
     <ul>
         @if (articles.Count > 0)
@@ -15,4 +15,29 @@
             }
         }
     </ul>
+</div>*@
+<div class="substrate">
+    <h2>Bài viết gần đây</h2>
+    <div>
+        @if (articles.Count > 0)
+        {
+            foreach (var article in articles)
+            {
+                var str = article.Title.Split('#');
+                var itemname = str.Length > 1 ? str[1] : article.Title;
+                var job = str.Length > 1 ? str[0] : "";
+                <div class="time-period-left-blue"><img src="@article.ImageUrl" style="width: 50px; max-height: 70px"/></div>
+                <div class="info-period">
+                    <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                        <h3>
+                            @itemname</h3>
+                    </a>
+                    <h4>@job</h4>
+                    <div class="content-p">@Html.Raw(article.Description)</div>
+                </div>
+            }
+        }
+    </div>
+    <div class="paper-clip">
+    </div>
 </div>

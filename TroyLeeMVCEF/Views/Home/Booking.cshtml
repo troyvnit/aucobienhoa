@@ -40,6 +40,7 @@
     </div>
     <!--/ header image/slider -->
 </div>
+<div style="clear:both"></div>
 <div class="middle sidebarRight">
     <div class="container_12">
         <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
@@ -87,8 +88,8 @@
         </div>
         <!--/ .content -->
         <div class="grid_4 sidebar">
-            @{Html.RenderAction("_NewArticle", "Home");}
             @RenderPage("~/Views/Shared/_HotInfo.cshtml")
+            @{Html.RenderAction("_NewArticle", "Home");}
         </div>
         <!--/ .sidebar -->
         <div class="clear">
@@ -101,26 +102,25 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-        alert('@date');
         var events_array = new Array(
 {
     startDate: new Date(2013, 05, 20, 15, 50),
     priority: 1 // 1 = Low, 2 = Medium, 3 = Urgent
 },
             {
-                startDate: new Date(2013, 05, 20, 15, 50),
+                startDate: new Date(2013, 05, 20, 16, 50),
                 priority: 1 // 1 = Low, 2 = Medium, 3 = Urgent
             },
             {
-                startDate: new Date(2013, 05, 20, 15, 50),
+                startDate: new Date(2013, 05, 20, 17, 50),
                 priority: 1 // 1 = Low, 2 = Medium, 3 = Urgent
             },
             {
-                startDate: new Date(2013, 05, 20, 15, 50),
+                startDate: new Date(2013, 05, 20, 18, 50),
                 priority: 1 // 1 = Low, 2 = Medium, 3 = Urgent
             },
             {
-                startDate: new Date(2013, 05, 20, 15, 50),
+                startDate: new Date(2013, 05, 20, 19, 50),
                 priority: 1 // 1 = Low, 2 = Medium, 3 = Urgent
             }
 );

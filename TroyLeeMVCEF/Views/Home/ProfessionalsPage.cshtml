@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Đội ngũ chuyên môn";
+    Layout = "~/Views/Shared/_LayoutFO.cshtml";
+    List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
+    var ArticleCategory = (TroyLeeMVCEF.Model.Entities.ArticleCategory)ViewBag.ArticleCategory;
+    var name = ArticleCategory != null ? ArticleCategory.ArticleCategoryName : "";
+    var acid = ArticleCategory != null ? ArticleCategory.ArticleCategoryID : Guid.Empty;
+    var img = ArticleCategory != null ? ArticleCategory.ImageUrl : "/images/khamvadieutri1.jpg";
+}
+<div class="container" style="margin-top: -51px;">
+    <!-- header image/slider -->
+    <div class="header_bot header_image">
+        <div class="container">
+            <img src="@img" height="142" width="960" alt="@img" />
+        </div>
+    </div>
+    <!--/ header image/slider -->
+</div>
+<div style="clear: both">
+</div>
+<div class="middle sidebarRight">
+    <div class="container_12">
+        <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
+            <div class="breadcrumb-trail">
+                <span class="trail-before"><span class="breadcrumb-title"></span></span><a href="@Url.Action("Index", "Home")"
+                    title="BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA" rel="home" class="trail-begin">
+                    Trang chủ</a> <span class="separator">»</span> <span class="trail-end">@name</span></div>
+        </div>
+        <div class="grid_8 content">
+            @if (articles.Count > 0)
+            {
+                foreach (var article in articles)
+                {
+                    var str = article.Title.Split('#');
+                    var itemname = str.Length > 1 ? str[1] : article.Title;
+                    var job = str.Length > 1 ? str[0] : "";
+                <div class="team_block">
+                    <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                        <img src="@article.ImageUrl" alt="" width="100%"/></a>
+                    <div class="itemname"><a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">@itemname</a></div>
+                    <div class="job">@job</div>
+                    @Html.Raw(article.Description)
+                </div>
+@*<!-- Main Content -->
+        <div class="shadow">
+            <!-- Used for shadow behind main content -->
+        <div data-easytabs="true" class="content-wrapper">
+
+
+            <!-- ABOUTME -->
+            <div class="active" style="display: block;">
+
+                <div style="display: block;" class="slider-wrapper"><!-- Flexslider -->
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; display: list-item;">
+                                <img src="@article.ImageUrl" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /Flexslider -->
+
+                <div class="about-wrapper">
+                    <div class="title">
+                        <h1>@itemname</h1>
+                        <h5>@job</h5>
+                    </div>
+					<div class="info-slider"><!-- Info Slider -->
+                        <div class="info-slide-list">
+                            <div style="left: 0px;" class="info-slide-wrapper">
+
+								<div class="info-slide-item"><!-- 1 -->
+                                    <div class="top-border-red">
+                                        @Html.Raw(article.Description)
+                                    </div>
+                                </div>
+                                </div></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div><!-- /Info Slider -->
+                </div>
+
+                <div class="floatlimit"></div>
+
+            </div><!-- /AboutMe -->
+
+            
+        </div><!-- /Main Content -->*@
+            
+@*<div class="col col_1_3 diamond-container" style="width: 280px">
+                    <div class="diamond">
+                    <div class="diamond-content">
+                    <img src="@article.ImageUrl" alt="">
+
+                    <div class="mask-member">
+                    <div class="mask-elem no-b">
+                    </div>
+                    </div>
+
+                    </div>
+                    </div><!--end diamond-->
+                        <h4 class="item-name">@itemname</h4>
+                        <h5 class="job-pos">@job</h5>
+                    <span class="member-text">@Html.Raw(article.Description)</span>
+                    </div>*@
+@*<div class="post-item">
+                        <div class="date-box">@String.Format("{0:dd/MM/yyyy}", article.UpdatedOn)</div>
+                        <h2>
+                            <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">@article.Title</a></h2>
+                        <div class="entry" style="float: left; width: 150px">
+                            <img width="150" height="150" src="@article.ImageUrl" class=" wp-post-image" alt="" title="@article.Title" />
+                        </div>
+                        <span style="width: 430px; float: left; margin-left: 15px;">@Html.Raw(article.Description)<a class="link-more" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                                                                                                      Xem tiếp</a></span>
+                        <div style="clear: both">
+                        </div>
+                        <div class="post-meta">
+                            <em><a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })" class="link-comments">@article.Comments.Count
+                                    góp ý</a> </em>
+                        </div>
+                    </div>
+                    <!--/ .post-item -->*@
+                }
+            }
+            <div class="divider_dots">
+            </div>
+            <div class="other_posts">
+                <span class="nextp">
+                    @if ((int)ViewBag.Page > 0)
+                    {
+                        <a href="@Url.Action("CategoryPage", "Home", new { ArticleCategoryID = acid, page = (int)ViewBag.Page + 1, pageSize = 9 })">
+                            Trang tiếp</a>
+                    }
+                </span><span class="prevp"></span>
+            </div>
+        </div>
+        <!--/ .content -->
+        <div class="grid_4 sidebar">
+            @RenderPage("~/Views/Shared/_HotInfo.cshtml")
+            @{Html.RenderAction("_NewArticle", "Home");}
+        </div>
+        <!--/ .sidebar -->
+        <div class="clear">
+        </div>
+    </div>
+    <!--/ .container_12 -->
+</div>
+<!--/ .middle -->
+<div class="middle_bot">
+</div>

@@ -37,6 +37,19 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult Index()
         {
+            var articles = new List<ArticleViewModel>();
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn))
+            {
+                var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
+                articlevm.Comments = new List<CommentViewModel>();
+                articlevm.ArticleCategoryIDs = article.ArticleCategories.Select(a => a.ArticleCategoryID).ToList();
+                foreach (var comment in article.Comments)
+                {
+                    articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
+                }
+                articles.Add(articlevm);
+            }
+            ViewBag.Articles = articles;
             return View();
         }
         public ActionResult ForumPage(int page = 1, int pageSize = 4, Guid ForumID = default(Guid))
@@ -62,7 +75,7 @@ namespace TroyLeeMVCEF.Controllers
             var articles = new List<ArticleViewModel>();
             foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
                 && (a.ArticleCategories.Select(ac => ac.ArticleCategoryID).ToList().Contains(ArticleCategoryID) || ArticleCategoryID == Guid.Empty)))
-                .OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+                .OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.Comments = new List<CommentViewModel>();
@@ -80,6 +93,30 @@ namespace TroyLeeMVCEF.Controllers
             ViewBag.ArticleCategory = articleCategoryRepository.GetById(ArticleCategoryID);
             ViewBag.Page = page;
             ViewBag.IsForum = IsForum;
+            return View();
+        }
+        public ActionResult ProfessionalsPage(int page = 1, int pageSize = 9, Guid ArticleCategoryID = default(Guid))
+        {
+            var articles = new List<ArticleViewModel>();
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
+                && (a.ArticleCategories.Select(ac => ac.ArticleCategoryID).ToList().Contains(ArticleCategoryID) || ArticleCategoryID == Guid.Empty)))
+                .OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            {
+                var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
+                articlevm.Comments = new List<CommentViewModel>();
+                foreach (var comment in article.Comments)
+                {
+                    articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
+                }
+                articles.Add(articlevm);
+            }
+            ViewBag.Articles = articles;
+            if (articles.Count < pageSize)
+            {
+                page = 0;
+            }
+            ViewBag.ArticleCategory = articleCategoryRepository.GetById(ArticleCategoryID);
+            ViewBag.Page = page;
             return View();
         }
         public ActionResult DetailPage(Guid ArticleID)
@@ -105,7 +142,7 @@ namespace TroyLeeMVCEF.Controllers
         public ActionResult _NewArticle(int page = 1, int pageSize = 5)
         {
             var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenBy(a => a.IsNew).ThenBy(a => a.UpdatedOn).ThenBy(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.Comments = new List<CommentViewModel>();
@@ -201,6 +238,30 @@ namespace TroyLeeMVCEF.Controllers
             var email = new Email(f["Email"], hostAddress, toAddress, username, password, f["Subject"], content);
             var success = email.send();
             return Json(!success ? "Gửi liên hệ thất bại, vui lòng thử lại sau!" : "Thông tin liên hệ của bạn đã được gửi, cảm ơn!");
+        }
+        public ActionResult Search(int page = 1, int pageSize = 4, string searchValue = "")
+        {
+            var articles = new List<ArticleViewModel>();
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
+                && (a.Content.ToLower().Contains(searchValue.ToLower()) || a.Description.ToLower().Contains(searchValue.ToLower()) || a.Title.ToLower().Contains(searchValue.ToLower()))))
+                .OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            {
+                var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
+                articlevm.Comments = new List<CommentViewModel>();
+                foreach (var comment in article.Comments)
+                {
+                    articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
+                }
+                articles.Add(articlevm);
+            }
+            ViewBag.Articles = articles;
+            if (articles.Count < pageSize)
+            {
+                page = 0;
+            }
+            ViewBag.Page = page;
+            ViewBag.SearchValue = searchValue;
+            return View();
         }
     }
 }

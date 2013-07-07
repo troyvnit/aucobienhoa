@@ -17,6 +17,7 @@ namespace TroyLeeMVCEF.Mappers
             Mapper.CreateMap<Article, ArticleViewModel>();
             Mapper.CreateMap<ArticleCategory, ArticleCategoryViewModel>();
             Mapper.CreateMap<Comment, CommentViewModel>();
+            Mapper.CreateMap<Menu, MenuViewModel>();
         }
     }
 }

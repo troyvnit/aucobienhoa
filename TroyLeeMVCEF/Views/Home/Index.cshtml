@@ -1,12 +1,14 @@
 ﻿@{
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Shared/_LayoutFO.cshtml";
+    List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
 }
 <div class="container" style="margin-top: -51px;">
     <!-- sw showcase -->
     <link href="/css/aw-showcase.css" media="screen" rel="stylesheet" type="text/css">
     <script type="text/javascript" language="JavaScript" src="/js/jquery.aw-showcase.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="/js/jquery.cycle.all.js"></script>
+    <link href="/css/modern.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $("#showcase").awShowcase({
@@ -93,206 +95,135 @@
     <div class="container_12">
         <div class="content">
             <div class="entry">
-                <table id="home_block_icon" width="100%">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a class="home_icon_block" href="http://www.aucobienhoa.com/#">
-                                    <img id="icm01" alt="" src="/images/pixel.gif" /></a>
-                            </td>
-                            <td>
-                                <a class="home_icon_block" href="http://www.aucobienhoa.com/#">
-                                    <img id="icm02" alt="" src="/images/pixel.gif" /></a>
-                            </td>
-                            <td>
-                                <a class="home_icon_block" href="http://www.aucobienhoa.com/#">
-                                    <img id="icm03" alt="" src="/images/pixel.gif" /></a>
-                            </td>
-                            <td>
-                                <a class="home_icon_block" href="http://www.aucobienhoa.com/#">
-                                    <img id="icm04" alt="" src="/images/pixel.gif" /></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="metrouicss">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "99aa6af3-e9e5-44dd-8db2-4dda75f30d37" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/banggia.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Bảng giá</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "38257e98-e99c-4e14-a261-a7fc3a1083f8" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/quytrinh.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Quy trình khám</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "f7a915cc-9abf-4ba9-a702-06183ed1abb4" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/baohiem.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Bảo hiểm</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0; height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "df7f7a39-a362-468d-bc89-cc50b0b43d5d" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/thehoivien.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Thẻ hội viên</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col col_1_3 " style="height: 360px; margin-left: 0">
-                    <div id="slide-panel">
-                        <div id="box_kkst">
-                            <div class="content_block">
+                    <div class="substrate">
+                        <div id="slide-nav">
+                        </div>
+                        <h2>
+                            TIN TỨC & SỰ KIỆN</h2>
+                        <div id="slide">
+                            @{ var news = articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).ToList(); }
+                            @for (int i = 0; i * 4 < news.Count && i * 4 < 12; i++)
+                            {
                                 <div>
-                                    <div class="txt_left left">
-                                        <a target="_blank" alt="Tin tức & Sự kiện" title="Tin tức & Sự kiện" class="txt_cate"
-                                           href="http://khoanhkhacsangtao.vnexpress.net">Tin tức & Sự kiện</a>
-                                           <div id="slide-nav">
-                        </div>
-                                    </div>
+                                    @foreach (var article in news.Skip(i * 4).Take(4))
+                                    {
+                                        var str = article.Title.Split('#');
+                                        var itemname = str.Length > 1 ? str[1] : article.Title;
+                                        var job = str.Length > 1 ? str[0] : "";
+                                        <div style="max-height: 100px">
+                                            <div class="time-period-left-blue">
+                                                <img src="@article.ImageUrl" style="width: 50px; max-height: 70px"/></div>
+                                            <div class="info-period">
+                                                <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                                    <h3>
+                                                        @itemname</h3>
+                                                </a>
+                                                <h4>@job</h4>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
-                                <div class="list_tin" id="slide">
+                            }
+                        </div>
+                        @*
                                     <div>
                                         <ul>
-                                            <li><a title="Đỏ sắc hương xuân" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Đỏ sắc hương xuân" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/22/19/file0148-1369225528_130x100.jpg"></a>
-                                                <a title="Đỏ sắc hương xuân" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                    target="_blank">Đỏ sắc hương xuân</a> </li>
-                                            <li><a title="Nhẹ nhàng và cá tính" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Nhẹ nhàng và cá tính" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/428037-10200235034576088-63345723-n-1369678059_130x100.jpg"></a>
-                                                <a title="Nhẹ nhàng và cá tính" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                    target="_blank">Nhẹ nhàng và cá tính</a> </li>
-                                            <li><a title="Chào ngày mới" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Chào ngày mới" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/524872-4262943946936-2058471196-n-1369677798_130x100.jpg"></a>
-                                                <a title="Chào ngày mới" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                    target="_blank">Chào ngày mới</a> </li>
+                                            @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).Skip(5).Take(5))
+                                            {
+                                                <li><a title="@article.Title" class="wrap_img left" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">
+                                                        <img width="73" height="55" alt="@article.Title" src="@article.ImageUrl"/></a>
+                                                    <a title="@article.Title" class="" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">@article.Title</a> </li>
+                                            }
                                         </ul>
                                         <div class="clear">
                                             &nbsp;</div>
                                     </div>
                                     <div>
                                         <ul>
-                                            <li><a title="Đỏ sắc hương xuân" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Đỏ sắc hương xuân" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/22/19/file0148-1369225528_130x100.jpg"></a>
-                                                <a title="Đỏ sắc hương xuân" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                    target="_blank">Đỏ sắc hương xuân</a> </li>
-                                            <li><a title="Nhẹ nhàng và cá tính" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Nhẹ nhàng và cá tính" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/428037-10200235034576088-63345723-n-1369678059_130x100.jpg"></a>
-                                                <a title="Nhẹ nhàng và cá tính" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                    target="_blank">Nhẹ nhàng và cá tính</a> </li>
-                                            <li><a title="Chào ngày mới" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                   target="_blank">
-                                                    <img width="73" height="55" alt="Chào ngày mới" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/524872-4262943946936-2058471196-n-1369677798_130x100.jpg"></a>
-                                                <a title="Chào ngày mới" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                   target="_blank">Chào ngày mới</a> </li>
-                                                   <li><a title="Nhẹ nhàng và cá tính" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Nhẹ nhàng và cá tính" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/428037-10200235034576088-63345723-n-1369678059_130x100.jpg"></a>
-                                                <a title="Nhẹ nhàng và cá tính" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                    target="_blank">Nhẹ nhàng và cá tính</a> </li>
-                                            <li><a title="Chào ngày mới" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Chào ngày mới" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/524872-4262943946936-2058471196-n-1369677798_130x100.jpg"></a>
-                                                <a title="Chào ngày mới" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                    target="_blank">Chào ngày mới</a> </li>
+                                            @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).Skip(10).Take(5))
+                                            {
+                                                <li><a title="@article.Title" class="wrap_img left" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">
+                                                        <img width="73" height="55" alt="@article.Title" src="@article.ImageUrl"/></a>
+                                                    <a title="@article.Title" class="" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">@article.Title</a> </li>
+                                            }
                                         </ul>
                                         <div class="clear">
                                             &nbsp;</div>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            <li><a title="Đỏ sắc hương xuân" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Đỏ sắc hương xuân" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/22/19/file0148-1369225528_130x100.jpg"></a>
-                                                <a title="Đỏ sắc hương xuân" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Do-sac-huong-xuan-3055.html"
-                                                    target="_blank">Đỏ sắc hương xuân</a> </li>
-                                            <li><a title="Nhẹ nhàng và cá tính" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Nhẹ nhàng và cá tính" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/428037-10200235034576088-63345723-n-1369678059_130x100.jpg"></a>
-                                                <a title="Nhẹ nhàng và cá tính" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Nhe-nhang-va-ca-tinh-3363.html"
-                                                    target="_blank">Nhẹ nhàng và cá tính</a> </li>
-                                            <li><a title="Chào ngày mới" class="wrap_img left" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                target="_blank">
-                                                <img width="73" height="55" alt="Chào ngày mới" src="http://s.f14.img.vnexpress.net/userphoto/2013/05/28/01/524872-4262943946936-2058471196-n-1369677798_130x100.jpg"></a>
-                                                <a title="Chào ngày mới" class="" href="http://khoanhkhacsangtao.vnexpress.net/anh-du-thi/Chao-ngay-moi-3359.html"
-                                                    target="_blank">Chào ngày mới</a> </li>
-                                        </ul>
-                                        <div class="clear">
-                                            &nbsp;</div>
-                                    </div>
+                                    </div>*@
+                        <div class="paper-clip">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_2_3 " style="margin-right: 0; z-index: 10">
+                    <iframe width="640" height="360" src="http://www.youtube.com/embed/LCk6-2wDdZ4?autoplay=1&loop=1" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111112"))).Take(3))
+                {
+                    <div class="col col_1_3 ">
+                        <div class="inner">
+                            <div class="text-block-1" style="padding: 0">
+                                <div class="title_icon">
+                                    <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                        <br />
+                                        <div style="width: 100%">
+                                        <img src="@Url.Content("~/images/News.png")" style="width: 30px" /><h3>
+                                                                                                               @article.Title</h3>
+                                                                                                               </div>
+                                    </a>
                                 </div>
-                                <div class="clear">
+                                <div style="clear: both">
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col_2_3 " style="margin-right: 0">
-                    <iframe width="640" height="360" src="http://www.youtube.com/embed/gCxNog7num4"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="col col_1_3 ">
-                    <div class="inner">
-                        <div class="text-block-1" style="padding: 0">
-                            <div class="title_icon">
-                                <a href="http://www.aucobienhoa.com/category/doi-ngu-chuyen-mon/">
-                                    <br>
-                                    <h3>
-                                        Đội ngũ bác sĩ</h3>
+                                <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                    <img class="alignleft" style="width: 80px; max-height: 120px;" title="@article.Title" src="@article.ImageUrl" alt="">
                                 </a>
-                                <p>
-                                    <a href="http://www.aucobienhoa.com/category/doi-ngu-chuyen-mon/"></a>
-                                </p>
+                                @Html.Raw(article.Description)
                             </div>
-                            <p>
-                            </p>
-                            <p style="text-align: justify;">
-                                <a href="./BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA   Mẹ tròn Con vuông_files/Kha-va-dieu-tri-21.jpg">
-                                    <img class="alignleft  wp-image-1124" title="Kha va dieu tri 2(1)" src="/images/Kha-va-dieu-tri-21.jpg"
-                                        alt="" width="80"></a>Đội ngũ bác sĩ, y tá, hộ lý, chuyên viên giàu kinh
-                                nghiệm đến từ TP.HCM mang đến dịch vụ khám chữa bệnh chất lượng cao, đáng tin cậy.
-                                Ngoài ra, nhằm tạo nên&nbsp;nguồn nhân lực y khoa nòng cốt và lâu dài, Âu Cơ cũng
-                                tuyển dụng và đào tạo kỹ càng đội ngũ y tá, điều dưỡng trẻ có tiềm năng.</p>
-                            <p>
-                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="col col_1_3 ">
-                    <div class="inner">
-                        <div class="text-block-1" style="padding: 0">
-                            <div class="title_icon">
-                                <a href="http://www.aucobienhoa.com/category/doi-ngu-chuyen-mon/">
-                                    <br>
-                                    <h3>
-                                        Đội ngũ bác sĩ</h3>
-                                </a>
-                                <p>
-                                    <a href="http://www.aucobienhoa.com/category/doi-ngu-chuyen-mon/"></a>
-                                </p>
-                            </div>
-                            <p>
-                            </p>
-                            <p style="text-align: justify;">
-                                <a href="./BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA   Mẹ tròn Con vuông_files/Kha-va-dieu-tri-21.jpg">
-                                    <img class="alignleft  wp-image-1124" title="Kha va dieu tri 2(1)" src="/images/Kha-va-dieu-tri-21.jpg"
-                                        alt="" width="80"></a>Đội ngũ bác sĩ, y tá, hộ lý, chuyên viên giàu kinh
-                                nghiệm đến từ TP.HCM mang đến dịch vụ khám chữa bệnh chất lượng cao, đáng tin cậy.
-                                Ngoài ra, nhằm tạo nên&nbsp;nguồn nhân lực y khoa nòng cốt và lâu dài, Âu Cơ cũng
-                                tuyển dụng và đào tạo kỹ càng đội ngũ y tá, điều dưỡng trẻ có tiềm năng.</p>
-                            <p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col_1_3 ">
-                    <div class="inner">
-                        <div class="text-block-1" style="padding: 0">
-                            <div class="title_icon">
-                                <a href="http://www.aucobienhoa.com/co-so-vat-chat-2/">
-                                    <br>
-                                    <h3>
-                                        Cơ sở vật chất</h3>
-                                </a>
-                                <p>
-                                    <a href="http://www.aucobienhoa.com/co-so-vat-chat-2/"></a>
-                                </p>
-                            </div>
-                            <p style="text-align: justify;">
-                                <a href="./BỆNH VIỆN PHỤ SẢN ÂU CƠ SÀI GÒN - BIÊN HÒA   Mẹ tròn Con vuông_files/tiennghi-12.jpg">
-                                    <img class="alignleft  wp-image-1250" title="tiennghi 1" src="/images/tiennghi-12.jpg"
-                                        alt="" height="60"></a>Bệnh viện phụ sản Âu Cơ có diện tích hơn 4.000m<sup>2</sup>,
-                                với quy mô 40 phòng, 80 giường. &nbsp;Đây là mô hình bệnh viện – khách sạn đạt tiêu
-                                chuẩn 3 sao về cơ sở hạ tầng, đạt 5 sao về chất lượng dịch vụ. &nbsp;Được trang
-                                bị đầy đủ các phương tiện máy móc, trang thiết bị y tế hiện đại, nhập khẩu mới 100%,
-                                nội thất cao cấp, tiện nghi để phục vụ tất cả các nhu cầu về sinh nở.</p>
-                            <p style="text-align: justify;">
-                                <!--more-->
-                                ………</p>
-                        </div>
-                    </div>
-                </div>
+                }
                 <div style="clear: both">
                 </div>
                 <div class="clear">
@@ -307,70 +238,3 @@
 <!--/ .middle -->
 <div class="middle_bot">
 </div>
-<style type="text/css">
-    #box_kkst
-    {
-        background: url("/images/bg_widget.jpg") no-repeat scroll left top #FFFFFF;
-    }
-    #box_kkst .txt_left a
-    {
-        color: #0D62AD;
-        font: 700 12px Tahoma;
-    }
-    #box_kkst .txt_left
-    {
-        padding: 0 0 8px;
-    }
-    #box_kkst .content_block
-    {
-        padding: 6px 10px 0;
-    }
-    #box_kkst .list_tin
-    {
-        float: left;
-        width: 100%;
-    }
-    #box_kkst .list_tin ul
-    {
-        float: left;
-        width: 100%;
-        list-style-type: none;
-    }
-    #box_kkst .list_tin ul li
-    {
-        float: left;
-        margin-bottom: 5px;
-        width: 100%;
-        list-style-type: none;
-        display: list-item;
-    }
-    #box_kkst .list_tin ul li a.wrap_img
-    {
-        margin-right: 10px;
-        float: left;
-    }
-    #box_kkst .list_tin ul li a
-    {
-        color: #000000;
-        font: 700 12px arial;
-    }
-    #slide-nav
-    {
-        height: 21px;
-        float: right;
-    }
-    #slide-nav a
-    {
-        background: #eee;
-        margin-right: 4px;
-        padding: 1px 5px;
-        text-decoration: none;
-        border: 2px solid #0D62AD;
-        color: #0D62AD;
-    }
-    #slide-nav a.activeSlide
-    {
-        background: #0D62AD;
-        color: #fff;
-    }
-</style>
