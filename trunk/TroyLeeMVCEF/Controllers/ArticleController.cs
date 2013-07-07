@@ -31,7 +31,11 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if (Session["AuCoBienHoaAdmin"] != null)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Account"); 
         }
         [HttpPost]
         public JsonResult GetArticleCategories()
@@ -51,7 +55,8 @@ namespace TroyLeeMVCEF.Controllers
                     
                     if (ModelState.IsValid)
                     {
-                        commandBus.Submit(command);
+                        var result = commandBus.Submit(command);
+                        articleCategory.ArticleCategoryID = result.ID;
                     }
                 }
                 return Json(articleCategories, JsonRequestBehavior.AllowGet);

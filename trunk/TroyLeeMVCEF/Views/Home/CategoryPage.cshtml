@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Dịch vụ";
+    ViewBag.Title = "Trang danh mục";
     Layout = "~/Views/Shared/_LayoutFO.cshtml";
     List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
     var ArticleCategory = (TroyLeeMVCEF.Model.Entities.ArticleCategory)ViewBag.ArticleCategory;
@@ -12,11 +12,12 @@
     <!-- header image/slider -->
     <div class="header_bot header_image">
         <div class="container">
-            <img src="@Url.Content("~/Images/" + img)" height="142" width="960" alt="@img" />
+            <img src="@img" height="142" width="960" alt="@img" />
         </div>
     </div>
     <!--/ header image/slider -->
 </div>
+<div style="clear:both"></div>
 <div class="middle sidebarRight">
     <div class="container_12">
         <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
@@ -30,6 +31,7 @@
             {
                 <input style="background-color:rgb(13, 98, 173);border-radius:5px;" type="button" value="Thêm @name" onclick="addPostForum()" />
             }	
+            @Html.Raw(ArticleCategory.Description)
             @if (articles.Count > 0)
             {
                 foreach (var article in articles)
@@ -39,7 +41,7 @@
                         <h2>
                             <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">@article.Title</a></h2>
                         <div class="entry" style="float: left; width: 150px">
-                            <img width="150" height="150" src="@Url.Content("~/Images/" + article.ImageUrl)" class=" wp-post-image" alt="" title="@article.Title" />
+                            <img style="width: 150px; max-height: 200px" src="@article.ImageUrl" class=" wp-post-image" alt="" title="@article.Title" />
                         </div>
                         <span style="width: 430px; float: left; margin-left: 15px;">@Html.Raw(article.Description)<a class="link-more" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
                                                                                                                       Xem tiếp</a></span>
@@ -67,8 +69,8 @@
         </div>
         <!--/ .content -->
         <div class="grid_4 sidebar">
-            @{Html.RenderAction("_NewArticle", "Home");}
             @RenderPage("~/Views/Shared/_HotInfo.cshtml")
+            @{Html.RenderAction("_NewArticle", "Home");}
         </div>
         <!--/ .sidebar -->
         <div class="clear">
@@ -130,7 +132,7 @@
         templates: [
             {title: 'Test template 1', content: 'Test 1'},
             {title: 'Test template 2', content: 'Test 2'}
-        ],
+        ]
     });
         jQuery(document).keyup(function(e) {
             if (e.keyCode == 27) {
@@ -151,9 +153,13 @@
                 type: "POST",
                 dataType: 'json',
                 success: function(data) {
+                    jQuery('.addPostForum').hide();
+                    jQuery('.addPostForum')[0].reset();
                     alert("Bài viết đã được đăng, sau khi admin duyệt sẽ hiển thị trên diễn đàn. Cảm ơn bạn đã tham gia vào diên đàn!");
                 },
                 error:function(data) {
+                    jQuery('.addPostForum').hide();
+                    jQuery('.addPostForum')[0].reset();
                     alert("Đăng thất bại, mời bạn thử lại vào lúc khác!");
                 },
             });

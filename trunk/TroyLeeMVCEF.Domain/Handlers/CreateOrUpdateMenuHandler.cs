@@ -21,23 +21,29 @@ namespace TroyLeeMVCEF.Domain.Handlers
         public ICommandResult Execute(CreateOrUpdateMenuCommand command)
         {
             Guid ID;
-            var menu = new Menu
+            if (menuRepository.GetById(command.MenuID) == null)
             {
-                MenuID = command.MenuID,
-                MenuName = command.MenuName,
-                IsDeleted = command.IsDeleted,
-                Url = command.Url,
-                OrderID = command.OrderID,
-                ParentID = command.ParentID
-            };
-            if (menu.MenuID == Guid.Empty)
-            {
+                var menu = new Menu
+                {
+                    MenuID = command.MenuID == Guid.Empty ? Guid.NewGuid() : command.MenuID,
+                    MenuName = command.MenuName,
+                    IsDeleted = command.IsDeleted,
+                    Url = command.Url,
+                    OrderID = command.OrderID,
+                    ParentID = command.ParentID
+                };
                 menu.MenuID = Guid.NewGuid();
                 menuRepository.Add(menu);
                 ID = menu.MenuID;
             }
             else
             {
+                var menu = menuRepository.GetById(command.MenuID);
+                menu.MenuName = command.MenuName;
+                menu.IsDeleted = command.IsDeleted;
+                menu.Url = command.Url;
+                menu.OrderID = command.OrderID;
+                menu.ParentID = command.ParentID;
                 menuRepository.Update(menu);
                 ID = menu.MenuID;
             }

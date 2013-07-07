@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutFO.cshtml";
     List<ArticleCategory> articleCategories = ViewBag.ArticleCategories;
     var Forum = (string)ViewBag.Forum;
-    var img = articleCategories != null && articleCategories.Count > 0 ? articleCategories.FirstOrDefault().ImageUrl : "/images/khamvadieutri1.jpg";
+    var img = articleCategories != null && articleCategories.Count > 0 && articleCategories.FirstOrDefault().ImageUrl != "" ? articleCategories.FirstOrDefault().ImageUrl : "/images/khamvadieutri1.jpg";
 }
 <div class="container" style="margin-top: -51px;">
     <!-- header image/slider -->
@@ -15,6 +15,7 @@
     </div>
     <!--/ header image/slider -->
 </div>
+<div style="clear:both"></div>
 <div class="middle sidebarRight">
     <div class="container_12">
         <div class="breadcrumb breadcrumbs tfuse-breadcrumbs">
@@ -30,7 +31,7 @@
                     {
                         <div class="forum">
                         <div class="ftitle">
-                            @articleCategory.ArticleCategoryName<a href="@Url.Action("CategoryPage", "Home", new { articleCategory.ArticleCategoryID })">- Xem thêm&gt;</a></div>
+                            @articleCategory.ArticleCategoryName<a href="@Url.Action("CategoryPage", "Home", new { articleCategory.ArticleCategoryID, IsForum = true })">- Xem thêm&gt;</a></div>
                             <ul>
                                 @foreach(var article in articleCategory.Articles)
                                 {
@@ -48,8 +49,8 @@
         </div>
         <!--/ .content -->
         <div class="grid_4 sidebar">
-            @{Html.RenderAction("_NewArticle", "Home");}
             @RenderPage("~/Views/Shared/_HotInfo.cshtml")
+            @{Html.RenderAction("_NewArticle", "Home");}
         </div>
         <!--/ .sidebar -->
         <div class="clear">
