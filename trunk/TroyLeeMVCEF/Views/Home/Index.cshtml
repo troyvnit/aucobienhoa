@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <div class="col col_2_3 " style="margin-right: 0; z-index: 10">
-                    <iframe width="640" height="360" src="http://www.youtube.com/embed/LCk6-2wDdZ4?autoplay=1&loop=1" frameborder="0"
+                    <iframe width="640" height="360" src="@ViewBag.VideoUrl" frameborder="0"
                         allowfullscreen></iframe>
                 </div>
                 @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111112"))).Take(3))

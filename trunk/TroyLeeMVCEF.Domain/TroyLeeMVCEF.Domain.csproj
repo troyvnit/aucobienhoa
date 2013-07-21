@@ -56,6 +56,7 @@
     <Compile Include="Handlers\CreateOrUpdateArticleCategoryHandler.cs" />
     <Compile Include="Handlers\CreateOrUpdateArticleHandler.cs" />
     <Compile Include="Handlers\CreateOrUpdateMenuHandler.cs" />
+    <Compile Include="Handlers\DeleteArticleHandler.cs" />
     <Compile Include="Handlers\DeleteMenuHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

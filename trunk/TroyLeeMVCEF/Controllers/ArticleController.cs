@@ -87,7 +87,9 @@ namespace TroyLeeMVCEF.Controllers
                 articlevm.ArticleCategoryIDs = article.ArticleCategories.Select(a => a.ArticleCategoryID).ToList();
                 articles.Add(articlevm);
             }
-            return Json(articles.OrderBy(a => a.OrderID), JsonRequestBehavior.AllowGet);
+            var jsonResult = Json(articles.OrderBy(a => a.OrderID), JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult CreateOrUpdateArticles(string models)

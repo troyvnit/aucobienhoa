@@ -1557,7 +1557,7 @@ input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hove
     display: block;
     background: url(/images/dropdown_1_bg.png) 0 0 repeat-y;
     padding: 0;
-    width: 175px;
+    width: 200px;
     margin: 0;
     height: auto;
     clear: both;
