@@ -404,6 +404,8 @@
                 success: function (e) {
                     $(".k-upload-files.k-reset").css("height", "100px");
                     $(".k-upload-files.k-reset").css("overflow", "scroll");
+                    $("#aimage").attr("src", e.Folder);
+                    dataItem.ImageUrl = $('#aimage').prop('src');
                 },
                 select: onSelect
             });

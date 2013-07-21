@@ -50,6 +50,7 @@ namespace TroyLeeMVCEF.Controllers
                 articles.Add(articlevm);
             }
             ViewBag.Articles = articles;
+            ViewBag.VideoUrl = menuRepository.GetById(Guid.Parse("11111111-1111-1111-1111-123412341234")).Url;
             return View();
         }
         public ActionResult ForumPage(int page = 1, int pageSize = 4, Guid ForumID = default(Guid))
@@ -174,13 +175,13 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult _TopMenu()
         {
-            var menus = menuRepository.GetAll().OrderBy(o => o.OrderID).ToList();
+            var menus = menuRepository.GetAll().Where(a => a.IsDeleted != true).OrderBy(o => o.OrderID).ToList();
             ViewBag.Menus = menus;
             return View();
         }
         public ActionResult _BottomMenu()
         {
-            var menus = menuRepository.GetAll().OrderBy(o => o.OrderID).ToList();
+            var menus = menuRepository.GetAll().Where(a => a.IsDeleted != true).OrderBy(o => o.OrderID).ToList();
             ViewBag.Menus = menus;
             return View();
         }

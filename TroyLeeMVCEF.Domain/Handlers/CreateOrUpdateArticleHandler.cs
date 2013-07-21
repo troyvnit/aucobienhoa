@@ -38,7 +38,6 @@ namespace TroyLeeMVCEF.Domain.Handlers
                         IsNew = command.IsNew,
                         IsPublished = command.IsPublished,
                         Title = command.Title,
-                        IsDeleted = false,
                         OrderID = command.OrderID,
                         ArticleCategories = new List<ArticleCategory>(), 
                         ArticleID = command.ArticleID == Guid.Empty ? Guid.NewGuid() : command.ArticleID
@@ -60,7 +59,6 @@ namespace TroyLeeMVCEF.Domain.Handlers
                 article.IsNew = command.IsNew;
                 article.IsPublished = command.IsPublished;
                 article.Title = command.Title;
-                article.IsDeleted = false;
                 article.OrderID = command.OrderID;
                 var articlecategories = command.ArticleCategoryIDs.Select(acID => articleCategoryRepository.GetById(acID)).ToList();
                 var deleteCats = article.ArticleCategories.Where(ac => !command.ArticleCategoryIDs.Contains(ac.ArticleCategoryID)).ToList();
