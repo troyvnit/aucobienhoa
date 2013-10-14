@@ -20,7 +20,7 @@
         captcha.add(Validate.Presence, { failureMessage: "" });
         $("#submitComment").click(function () {
             var frm = $('#commentform');
-            if (LiveValidation.massValidate([name, email, phone, captcha])) {
+            //if (LiveValidation.massValidate([name, email, phone, captcha])) {
                 //                
 
                 var doctorid = $("#Doctor :selected").val();
@@ -51,7 +51,7 @@
                     }
                 });
 
-            }
+            //}
         });
         /*load data to combobox*/
         var webServiceURL = '/booking/Doctors';
