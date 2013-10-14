@@ -19,39 +19,39 @@
         var captcha = new LiveValidation("CaptchaInputText");
         captcha.add(Validate.Presence, { failureMessage: "" });
         $("#submitComment").click(function () {
-            //            var frm = $('#commentform');
-            //            if (LiveValidation.massValidate([name, email, phone, captcha])) {
-            //                
+            var frm = $('#commentform');
+            if (LiveValidation.massValidate([name, email, phone, captcha])) {
+                //                
 
-            var doctorid = $("#Doctor :selected").val();
-            var year = $("#booking_year :selected").val();
-            var month = $("#booking_month :selected").val();
-            var day = $("#booking_day :selected").val();
-            var timeid = $("#booking_timeid :selected").val();
-            var name = $("#name").val();
-            var phone = $("#phone").val();
-            var email = $("#email").val();
-            var address = $("#address").val();
-            var birthday = $("#birthday").val();
-            var question = $("#question").val();
-            var webServiceURL = '/booking/booking';
+                var doctorid = $("#Doctor :selected").val();
+                var year = $("#booking_year :selected").val();
+                var month = $("#booking_month :selected").val();
+                var day = $("#booking_day :selected").val();
+                var timeid = $("#booking_timeid :selected").val();
+                var name = $("#name").val();
+                var phone = $("#phone").val();
+                var email = $("#email").val();
+                var address = $("#address").val();
+                var birthday = $("#birthday").val();
+                var question = $("#question").val();
+                var webServiceURL = '/booking/booking';
 
-            $.ajax({
+                $.ajax({
 
-                url: webServiceURL,
-                type: "post",
-                data: { doctorid: doctorid, year: year, month: month, day: day, timeid: timeid, name: name, phone: phone, email: email, address: address, question: question, birthday: birthday },
-                error: function () {
-                    alert('Service Error');
-                },
-                success: function (data) {
-                    var jdata = $.parseJSON(data)
-                    if (jdata[0]["result"]) alert("Dang ky hen thanh cong");
-                    else alert("Service Error");
-                }
-            });
+                    url: webServiceURL,
+                    type: "post",
+                    data: { doctorid: doctorid, year: year, month: month, day: day, timeid: timeid, name: name, phone: phone, email: email, address: address, question: question, birthday: birthday },
+                    error: function () {
+                        alert('Service Error');
+                    },
+                    success: function (data) {
+                        var jdata = $.parseJSON(data)
+                        if (jdata[0]["result"]) alert("Dang ky hen thanh cong");
+                        else alert("Service Error");
+                    }
+                });
 
-            // }
+            }
         });
         /*load data to combobox*/
         var webServiceURL = '/booking/Doctors';
