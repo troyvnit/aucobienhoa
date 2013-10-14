@@ -29,6 +29,7 @@ namespace TroyLeeMVCEF.Controllers
             var result = service.AvailableHoursByDoctor (model.doctorid, new DateTime(model.year ,model.month,model.day)  , "BE470FAB-0CC0-653D736D10F6");
             return Content(result);
         }
+        [HttpPost]
         public ActionResult Booking(BookingViewModel  model)
         {
             BookingModel m = new BookingModel(model); 
