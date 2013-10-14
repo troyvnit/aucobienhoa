@@ -96,6 +96,7 @@
                 var jsonDatas = $.parseJSON(jdata)
                 var ob = $("#booking_day");
                 ob.empty();
+                ob.append("<option>- Day -</option>");
                 for (var i = 0; i < jsonDatas.length; i++) {
                     var val = jsonDatas[i]["sDate"];
                     var text = jsonDatas[i]["sDate"];
@@ -124,6 +125,7 @@
             success: function (datas) {
                 var jsonDatas = $.parseJSON(datas)
                 var ob = $("#booking_timeid");
+                ob.append("<option>- Hour -</option>");
                 ob.empty();
                 for (var i = 0; i < jsonDatas.length; i++) {
                     var val = jsonDatas[i]["i_ID"];
