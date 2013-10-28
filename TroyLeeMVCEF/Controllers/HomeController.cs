@@ -192,10 +192,10 @@ namespace TroyLeeMVCEF.Controllers
         [HttpPost]
         public ActionResult Contact(FormCollection f)
         {
-            if (this.IsCaptchaValid("Captcha is not valid"))
-            {
-                return Json("Mã bảo mật không đúng, vui lòng thử lại!");
-            }
+            //if (this.IsCaptchaValid("Captcha is not valid"))
+            //{
+            //    return Json("Mã bảo mật không đúng, vui lòng thử lại!");
+            //}
             var fromAddress = ConfigurationManager.AppSettings.Get("SendMailMessagesFromAddress");
             var hostAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPHostAddress");
             var toAddress = ConfigurationManager.AppSettings.Get("SendMailSTMPToAddress");
