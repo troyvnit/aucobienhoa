@@ -6,11 +6,15 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
+        var code = Math.floor(Math.random() * 100000);
+        $("#txtCaptcha").val(code);
+        $("#txtCaptchaDiv").html(code);
+
         $("#birthday").datepicker({ dateFormat: "dd/mm/yy" });
         var d = new Date();
         $("#booking_year option[value=" + d.getFullYear() + "]").attr('selected', 'selected');
         $("#booking_month option[value=" + (d.getMonth() + 1) + "]").attr('selected', 'selected');
-        var name = new LiveValidation("name");
+        /*var name = new LiveValidation("name");
         name.add(Validate.Presence, { failureMessage: "" });
         var email = new LiveValidation("email");
         email.add(Validate.Presence, { failureMessage: "" });
@@ -18,12 +22,12 @@
         var phone = new LiveValidation("phone");
         phone.add(Validate.Presence, { failureMessage: "" });
         var captcha = new LiveValidation("CaptchaInputText");
-        captcha.add(Validate.Presence, { failureMessage: "" });
+        captcha.add(Validate.Presence, { failureMessage: "" });*/
         $("#submitComment").click(function () {
             var frm = $('#commentform');
             //if (LiveValidation.massValidate([name, email, phone, captcha])) {
             //                
-            var errorMessage = ""
+            var errorMessage = "";
             var doctorid = $("#Doctor :selected").val();
             var year = $("#booking_year :selected").val();
             var month = $("#booking_month :selected").val();
@@ -38,15 +42,16 @@
             var webServiceURL = '/booking/booking';
             if (birthday.length) birthday = convert2sysdate(birthday);
             /*Code validate form*/
-            if (day == "- Day -") errorMessage += " ngày khám,"
-            if (timeid == null || timeid == 0) errorMessage += " giờ khám,"
-            if (name.length == 0) errorMessage += " tên khách hàng,"
-            if (phone.length == 0) errorMessage += " số điện thoại,"
-            if (birthday.length == 0) errorMessage += " ngày sinh,"
-            if (email.length < 5) errorMessage += " Email,"
+            if (day == "- Day -") errorMessage += " ngày khám,";
+            if (timeid == null || timeid == 0) errorMessage += " giờ khám,";
+            if (name.length == 0) errorMessage += " tên khách hàng,";
+            if (phone.length == 0) errorMessage += " số điện thoại,";
+            if (birthday.length == 0) errorMessage += " ngày sinh,";
+            if (email.length < 5) errorMessage += " Email,";
+            if ($("#txtInput").val() != $("#txtCaptcha").val()) errorMessage += " mã bảo mật,";
             if (errorMessage.length > 0) {
                 errorMessage = errorMessage.substr(0, errorMessage.length - 1);
-                errorMessage = "Xin vui lòng kiểm tra các thông tin sau: " + errorMessage;
+                errorMessage = "Xin vui lòng nhập đúng và đủ các thông tin sau: " + errorMessage;
                 $('#error').text(errorMessage);
             } else {
                 /*End  Code validate form*/
@@ -60,7 +65,11 @@
                     },
                     success: function (data) {
                         var jdata = $.parseJSON(data)
-                        if (jdata[0]["result"]) alert("Đăng ký đặt hẹn thành công");
+                        if (jdata[0]["result"]) {
+                            alert("Đăng ký đặt hẹn thành công");
+                            $('#error').text("");
+                            $('#commentform')[0].reset();
+                        }
                         else alert("Service Error");
                     }
                 });
@@ -151,13 +160,13 @@
             }
         });
     }
-    function convert2sysdate (sDate) {
+    function convert2sysdate(sDate) {
         var aDate = sDate.split('/');
-        if (aDate.length ==3 ){
-            return aDate[1] + "/" + aDate[0] + "/" + aDate[2]; 
+        if (aDate.length == 3) {
+            return aDate[1] + "/" + aDate[0] + "/" + aDate[2];
         }
         return "1900/01/01";
-     
+
     }
 </script>
 <div class="container" style="margin-top: -51px;">
@@ -245,8 +254,9 @@
                     Ghi chú:<br />
                     <textarea name="Question" id="question" style="width: 300px"></textarea></p>
                 <p>
-                    Nhập mã bào mật:<br />
-                    @Html.Captcha("Đổi hình", "Nhập mã bảo mật:", 5, "Không được trống", true)
+                    Nhập mã bào mật: <span id="txtCaptchaDiv" style="color: #F00"></span>
+                    <input type="hidden" id="txtCaptcha" /><br />
+                    <input type="text" name="txtInput" id="txtInput" style="width: 100%" />
                     <p>
                         <p>
                             <label id="error" style="color: red">
