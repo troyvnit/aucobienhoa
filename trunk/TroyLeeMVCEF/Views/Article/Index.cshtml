@@ -249,17 +249,38 @@
                 filterable: true,
                 resizable: true,
                 saveChanges: function (e) {
-                    console.log(e.sender);
                     for (var i = 0; i < e.sender._data.length; i++) {
-                        if (e.sender._data[i].Title == "") {
-                            alert("Bài viết chưa có tiêu đề, vui lòng nhập tiêu đề trước khi lưu!");
-                            e.preventDefault();
+                        if (dataItem && e.sender._data[i].ArticleID == dataItem.ArticleID) {
+                            e.sender._data[i].dirty = true;
                         }
-                        else if (e.sender._data[i].Content == "") {
-                            alert("Bài viết " + e.sender._data[i].Title + " chưa có nội dung, vui lòng nhập nội dung trước khi lưu!");
-                            e.preventDefault();
-                        }
-                        else {
+                        if (e.sender._data[i].dirty){
+                            if (e.sender._data[i].Title == "") {
+                                alert("Bài viết chưa có tiêu đề, vui lòng nhập tiêu đề trước khi lưu!");
+                                e.preventDefault();
+                            }
+                            else if (e.sender._data[i].Content == "") {
+                                $.ajax({
+                                    url: "/Article/GetDescriptionAndContent",
+                                    type: "post",
+                                    data: { id: e.sender._data[i].ArticleID },
+                                    dataType: "json",
+                                    async: false,
+                                    success: function (result) {
+                                        if (e.sender._data[i].Description == "") {
+                                            e.sender._data[i].Description = result.Description;
+                                        }
+                                        if (result.Content != "") {
+                                            e.sender._data[i].Content = result.Content;
+                                        } else {
+                                            alert("Bài viết " + e.sender._data[i].Title + " chưa có nội dung, vui lòng nhập nội dung trước khi lưu!");
+                                            e.preventDefault();
+                                        }
+                                    }
+                                });
+                            }
+                            else {
+
+                            }
                             if (e.sender._data[i].ArticleCategoryIDs != null && e.sender._data[i].ArticleCategoryIDs.length != "" && typeof e.sender._data[i].ArticleCategoryIDs == "string") {
                                 try {
                                     e.sender._data[i].ArticleCategoryIDs = e.sender._data[i].ArticleCategoryIDs.split(',');
@@ -269,7 +290,6 @@
                                     e.sender._data[i].ArticleCategoryIDs = arr.toString();
                                 }
                             }
-                            e.sender._data[i].dirty = true;
                         }
                     }
                 }
@@ -305,7 +325,6 @@
             function onSaveContentWindow() {
                 var ceditor = $("#ceditor").data("kendoEditor");
                 dataItem.Content = ceditor.value();
-                console.log(dataItem.Content);
                 var desc = $("#desc").data("kendoEditor");
                 dataItem.Description = desc.value();
                 var articlecategories = $("#articlecategories").data("kendoMultiSelect");
@@ -394,7 +413,24 @@
         function contentEditor(e) {
             e.preventDefault();
             dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            wnd.content(detailsTemplate(dataItem));
+if(dataItem.ArticleID != "" && dataItem.ArticleID != null && dataItem.ArticleID != "00000000-0000-0000-0000-000000000000")
+{
+            $.ajax({
+                url: "/Article/GetDescriptionAndContent",
+                type: "post",
+                data: { id: dataItem.ArticleID },
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    dataItem.Description = result.Description;
+                    dataItem.Content = result.Content;
+                    wnd.content(detailsTemplate(dataItem));
+                }
+            });
+}
+else{
+                    wnd.content(detailsTemplate(dataItem));
+}
             var arrFiles = [];
             $("#uploadimage").kendoUpload({
                 multiple: true,
