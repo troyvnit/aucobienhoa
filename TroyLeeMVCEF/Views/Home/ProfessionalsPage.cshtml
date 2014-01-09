@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Đội ngũ chuyên môn";
     Layout = "~/Views/Shared/_LayoutFO.cshtml";
+    List<TroyLeeMVCEF.Models.ArticleViewModel> doctors = ViewBag.Doctors;
     List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
     var ArticleCategory = (TroyLeeMVCEF.Model.Entities.ArticleCategory)ViewBag.ArticleCategory;
     var name = ArticleCategory != null ? ArticleCategory.ArticleCategoryName : "";
@@ -27,9 +28,9 @@
                     Trang chủ</a> <span class="separator">»</span> <span class="trail-end">@name</span></div>
         </div>
         <div class="grid_8 content">
-            @if (articles.Count > 0)
+            @if (doctors.Count > 0)
             {
-                foreach (var article in articles)
+                foreach (var article in doctors)
                 {
                     var str = article.Title.Split('#');
                     var itemname = str.Length > 1 ? str[1] : article.Title;
@@ -122,13 +123,38 @@
                     <!--/ .post-item -->*@
                 }
             }
+             @if (articles.Count > 0)
+            {
+                foreach (var article in articles)
+                {
+                    <div class="post-item">
+                        <div class="date-box">@String.Format("{0:dd/MM/yyyy}", article.UpdatedOn)</div>
+                        <h2>
+                            <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">@article.Title</a></h2>
+                        @*<div class="entry" style="float: left; width: 150px">
+                            <img style="width: 150px; max-height: 200px" src="@article.ImageUrl" class=" wp-post-image" alt="" title="@article.Title" />
+                        </div>*@
+                        <span style="width: 430px; float: left; margin-left: 15px;">@Html.Raw(article.Description)<a class="link-more" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                                                                                                      Xem tiếp</a></span>
+                        <div style="clear: both">
+                        </div>
+                        @*<div class="post-meta">
+                            <em><a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })" class="link-comments">@article.Comments.Count
+                                    góp ý</a> </em>
+                        </div>*@
+                    </div>
+                    <!--/ .post-item -->
+                    <div class="divider_dots">
+                    </div>
+                }
+            }
             <div class="divider_dots">
             </div>
             <div class="other_posts">
                 <span class="nextp">
                     @if ((int)ViewBag.Page > 0)
                     {
-                        <a href="@Url.Action("CategoryPage", "Home", new { ArticleCategoryID = acid, page = (int)ViewBag.Page + 1, pageSize = 9 })">
+                        <a href="@Url.Action("ProfessionalsPage", "Home", new { ArticleCategoryID = acid, page = (int)ViewBag.Page + 1, pageSize = 9 })">
                             Trang tiếp</a>
                     }
                 </span><span class="prevp"></span>

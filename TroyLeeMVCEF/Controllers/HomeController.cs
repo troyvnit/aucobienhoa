@@ -98,9 +98,29 @@ namespace TroyLeeMVCEF.Controllers
         }
         public ActionResult ProfessionalsPage(int page = 1, int pageSize = 9, Guid ArticleCategoryID = default(Guid))
         {
-            var articles = new List<ArticleViewModel>();
+            var doctors = new List<ArticleViewModel>();
             foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
                 && (a.ArticleCategories.Select(ac => ac.ArticleCategoryID).ToList().Contains(ArticleCategoryID) || ArticleCategoryID == Guid.Empty)))
+                .OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            {
+                var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
+                articlevm.Comments = new List<CommentViewModel>();
+                foreach (var comment in article.Comments)
+                {
+                    articlevm.Comments.Add(Mapper.Map<Comment, CommentViewModel>(comment));
+                }
+                doctors.Add(articlevm);
+            }
+            ViewBag.Doctors = doctors;
+            if (doctors.Count < pageSize)
+            {
+                page = 0;
+            }
+            ViewBag.ArticleCategory = articleCategoryRepository.GetById(ArticleCategoryID);
+            ViewBag.Page = page;
+            var articles = new List<ArticleViewModel>();
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished
+                && (a.ArticleCategories.Select(ac => ac.ArticleCategoryID).ToList().Contains(Guid.Parse("11111111-1111-1111-1111-111111111115")))))
                 .OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
@@ -112,12 +132,6 @@ namespace TroyLeeMVCEF.Controllers
                 articles.Add(articlevm);
             }
             ViewBag.Articles = articles;
-            if (articles.Count < pageSize)
-            {
-                page = 0;
-            }
-            ViewBag.ArticleCategory = articleCategoryRepository.GetById(ArticleCategoryID);
-            ViewBag.Page = page;
             return View();
         }
         public ActionResult DetailPage(Guid ArticleID)
@@ -143,7 +157,7 @@ namespace TroyLeeMVCEF.Controllers
         public ActionResult _NewArticle(int page = 1, int pageSize = 5)
         {
             var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished)).OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
+            foreach (var article in articleRepository.GetAll().Where(a => (a.IsDeleted != true && a.IsPublished && (a.ArticleCategories.Select(b => b.ArticleCategoryID).Contains(Guid.Parse("11111111-1111-1111-1111-111111111110")) || a.ArticleCategories.Select(b => b.ArticleCategoryID).Contains(Guid.Parse("11111111-1111-1111-1111-111111111103"))))).OrderBy(a => a.OrderID).ThenByDescending(a => a.IsNew).ThenByDescending(a => a.UpdatedOn).ThenByDescending(a => a.CreatedOn).Skip((page - 1) * pageSize).Take(pageSize))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.Comments = new List<CommentViewModel>();

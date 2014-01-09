@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutFO.cshtml";
+    List<TroyLeeMVCEF.Models.ArticleViewModel> articles = ViewBag.Articles;
+}
+<div class="container" style="margin-top: -51px;">
+    <!-- sw showcase -->
+    <link href="/css/aw-showcase.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" language="JavaScript" src="/js/jquery.aw-showcase.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/jquery.cycle.all.js"></script>
+    <link href="/css/modern.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $("#showcase").awShowcase({
+                content_width: 960,
+                content_height: 444,
+                fit_to_parent: false,
+                auto: true,
+                interval: 3000,
+                continuous: true,
+                loading: true,
+                tooltip_width: 200,
+                tooltip_icon_width: 32,
+                tooltip_icon_height: 32,
+                tooltip_offsetx: 18,
+                tooltip_offsety: 0,
+                arrows: false,
+                buttons: false,
+                btn_numbers: false,
+                keybord_keys: true,
+                mousetrace: false,
+                pauseonover: true,
+                stoponclick: true,
+                transition: 'fade',
+                transition_delay: 1000,
+                transition_speed: 800,
+                show_caption: 'onhover',
+                thumbnails: true,
+                thumbnails_position: 'inside-last',
+                thumbnails_direction: 'vertical',
+                thumbnails_slidex: 0,
+                dynamic_height: false,
+                speed_change: true,
+                viewline: false
+            });
+            $("#slide").cycle({
+                //Các tùy chọn của jQuery cycle
+                fx: 'fade', //Hiệu ứng
+                speed: 1000, //Tốc độ diễn ra hiệu ứng 1/1000s
+                timeout: 10000, //Thời gian thay đổi giữa các trong 3s
+                pager: '#slide-nav' //Tạo phân trang
+            });
+        });
+    </script>
+    <!-- header image/slider -->
+    <div class="header_bot header_slider">
+        <div class="container">
+            <!-- showcase slider -->
+            <div id="showcase" class="showcase">
+                <!-- Each child div in #showcase represents a slide -->
+                <div class="showcase-slide">
+                    <!-- Put the slide content in a div with the class .showcase-content. -->
+                    <div class="showcase-content">
+                        <img src="/images/trangchubanner1.jpg" alt="01" />
+                    </div>
+                </div>
+                <!-- Each child div in #showcase represents a slide -->
+                <div class="showcase-slide">
+                    <!-- Put the slide content in a div with the class .showcase-content. -->
+                    <div class="showcase-content">
+                        <img src="/images/trangchubanner2.jpg" alt="01" />
+                    </div>
+                </div>
+                <!-- Each child div in #showcase represents a slide -->
+                <div class="showcase-slide">
+                    <!-- Put the slide content in a div with the class .showcase-content. -->
+                    <div class="showcase-content">
+                        <img src="/images/trangchubanner3.jpg" alt="01" />
+                    </div>
+                </div>
+                <!-- Each child div in #showcase represents a slide -->
+                <div class="showcase-slide">
+                    <!-- Put the slide content in a div with the class .showcase-content. -->
+                    <div class="showcase-content">
+                        <img src="/images/trangchubanner4.jpg" alt="01" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ showcase slider -->
+    </div>
+</div>
+<!--/ header image/slider -->
+<div class="middle">
+    <div class="container_12">
+        <div class="content">
+            <div class="entry">
+                <div class="metrouicss">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "99aa6af3-e9e5-44dd-8db2-4dda75f30d37" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/banggia.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Bảng giá</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "38257e98-e99c-4e14-a261-a7fc3a1083f8" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/quytrinh.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Quy trình khám</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0 10px 5px 0;
+                                height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "f7a915cc-9abf-4ba9-a702-06183ed1abb4" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/baohiem.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Bảo hiểm</h2>
+                                </a>
+                            </div>
+                            <div class="metrouicss span3" style="background-color: #00A300; margin: 0; height: 70px">
+                                <a href="@Url.Action("DetailPage", "Home", new { ArticleID = "df7f7a39-a362-468d-bc89-cc50b0b43d5d" })">
+                                    <img class="place-right" style="margin: 10px; max-width: 30px" src="/images/thehoivien.png">
+                                    <h2 class="fg-color-white" style="position: relative; bottom: -30px; left: 10px">
+                                        Thẻ hội viên</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_1_3 " style="height: 360px; margin-left: 0">
+                    <div class="substrate">
+                        <div id="slide-nav">
+                        </div>
+                        <h2>
+                            TIN TỨC & SỰ KIỆN</h2>
+                        <div id="slide">
+                            @{ var news = articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).ToList(); }
+                            @for (int i = 0; i * 4 < news.Count && i * 4 < 12; i++)
+                            {
+                                <div>
+                                    @foreach (var article in news.Skip(i * 4).Take(4))
+                                    {
+                                        var str = article.Title.Split('#');
+                                        var itemname = str.Length > 1 ? str[1] : article.Title;
+                                        var job = str.Length > 1 ? str[0] : "";
+                                        <div style="max-height: 100px">
+                                            <div class="time-period-left-blue">
+                                                <img src="@article.ImageUrl" style="width: 50px; max-height: 70px"/></div>
+                                            <div class="info-period">
+                                                <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                                    <h3>
+                                                        @itemname</h3>
+                                                </a>
+                                                <h4>@job</h4>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        @*
+                                    <div>
+                                        <ul>
+                                            @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).Skip(5).Take(5))
+                                            {
+                                                <li><a title="@article.Title" class="wrap_img left" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">
+                                                        <img width="73" height="55" alt="@article.Title" src="@article.ImageUrl"/></a>
+                                                    <a title="@article.Title" class="" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">@article.Title</a> </li>
+                                            }
+                                        </ul>
+                                        <div class="clear">
+                                            &nbsp;</div>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111101"))).Skip(10).Take(5))
+                                            {
+                                                <li><a title="@article.Title" class="wrap_img left" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">
+                                                        <img width="73" height="55" alt="@article.Title" src="@article.ImageUrl"/></a>
+                                                    <a title="@article.Title" class="" href="@Url.Action("DetailPage", "Home", new { article.ArticleID })"
+                                                       target="_blank">@article.Title</a> </li>
+                                            }
+                                        </ul>
+                                        <div class="clear">
+                                            &nbsp;</div>
+                                    </div>*@
+                        <div class="paper-clip">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col_2_3 " style="margin-right: 0; z-index: 10">
+                    <iframe width="640" height="360" src="@ViewBag.VideoUrl" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                @foreach (var article in articles.Where(a => a.ArticleCategoryIDs.Contains(Guid.Parse("11111111-1111-1111-1111-111111111112"))).Take(3))
+                {
+                    <div class="col col_1_3 ">
+                        <div class="inner">
+                            <div class="text-block-1" style="padding: 0">
+                                <div class="title_icon">
+                                    <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                        <br />
+                                        <div style="width: 100%">
+                                        <img src="@Url.Content("~/images/News.png")" style="width: 30px" /><h3>
+                                                                                                               @article.Title</h3>
+                                                                                                               </div>
+                                    </a>
+                                </div>
+                                <div style="clear: both">
+                                </div>
+                                <a href="@Url.Action("DetailPage", "Home", new { article.ArticleID })">
+                                    <img class="alignleft" style="width: 80px; max-height: 120px;" title="@article.Title" src="@article.ImageUrl" alt="">
+                                </a>
+                                @Html.Raw(article.Description)
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div style="clear: both">
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <!--/ .entry -->
+        </div>
+        <!--/ .content -->
+    </div>
+    <!--/ .container_12 -->
+</div>
+<!--/ .middle -->
+<div class="middle_bot">
+</div>

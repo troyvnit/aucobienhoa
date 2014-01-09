@@ -81,7 +81,22 @@ namespace TroyLeeMVCEF.Controllers
         public JsonResult GetArticles()
         {
             var articles = new List<ArticleViewModel>();
-            foreach (var article in articleRepository.GetAll().Where(a => a.IsDeleted != true))
+            foreach (var article in articleRepository.GetAll().Where(a => a.IsDeleted != true).Select(a => new Article { ArticleID = a.ArticleID, Author = a.Author,
+                                                                                                                         Comments = a.Comments,
+                                                                                                                         CreatedBy = a.CreatedBy,
+                                                                                                                         CreatedOn = a.CreatedOn,
+                                                                                                                         Description = "",
+                                                                                                                         ImageUrl = a.ImageUrl,
+                                                                                                                         IsDeleted = a.IsDeleted,
+                                                                                                                         IsNew = a.IsNew,
+                                                                                                                         IsPublished = a.IsPublished,
+                                                                                                                         OrderID = a.OrderID,
+                                                                                                                         Title = a.Title,
+                                                                                                                         UpdatedBy = a.UpdatedBy,
+                                                                                                                         UpdatedOn = a.UpdatedOn,
+                                                                                                                         ArticleCategories = a.ArticleCategories,
+                                                                                                                         Content = ""
+            }))
             {
                 var articlevm = Mapper.Map<Article, ArticleViewModel>(article);
                 articlevm.ArticleCategoryIDs = article.ArticleCategories.Select(a => a.ArticleCategoryID).ToList();
@@ -91,6 +106,14 @@ namespace TroyLeeMVCEF.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        [HttpPost]
+        public JsonResult GetDescriptionAndContent(Guid id)
+        {
+            var article = articleRepository.GetById(id);
+            return Json(new { article.Description, article.Content }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost, ValidateInput(false)]
         public ActionResult CreateOrUpdateArticles(string models)
         {
